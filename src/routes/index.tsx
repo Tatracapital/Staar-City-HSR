@@ -122,6 +122,7 @@ function GoldButton({
 
 function Nav() {
   const [scrolled, setScrolled] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
     onScroll();
@@ -148,7 +149,7 @@ function Nav() {
       <div
         className={`mx-auto flex max-w-7xl items-center justify-between px-6 lg:px-10 transition-all ${
           scrolled
-            ? "rounded-full bg-white/70 backdrop-blur-xl border border-white/60 shadow-[0_10px_40px_-20px_rgba(60,40,20,0.18)] py-3"
+            ? "rounded-full bg-white/80 backdrop-blur-xl border border-white/60 shadow-[0_10px_40px_-20px_rgba(60,40,20,0.18)] py-3"
             : ""
         }`}
         style={scrolled ? { maxWidth: "76rem" } : {}}
@@ -159,33 +160,119 @@ function Nav() {
             alt="TATRA STAR CITY"
             className={`w-auto transition-all duration-200 ${scrolled ? "h-10" : "h-20"}`}
           />
-          {/* <div className="hidden sm:block leading-tight">
-            <div className="text-[10px] uppercase tracking-[0.32em] text-foreground/55">
-              TATRA Capital
-            </div>
-            <div className="text-[13px] font-medium tracking-[0.18em]">
-              STAR CITY
-            </div>
-          </div> */}
         </a>
-        <nav className="hidden lg:flex items-center gap-9 text-[12px] uppercase tracking-[0.22em] text-foreground/70">
+
+        <nav className="hidden lg:flex items-center gap-8 text-[12px] uppercase tracking-[0.22em] text-foreground/75">
           {links.map(([label, href]) => (
             <a
               key={href}
               href={href}
-              className="hover:text-foreground transition-colors"
+              className="relative transition-colors hover:text-foreground"
             >
               {label}
+              <span className="absolute inset-x-0 -bottom-1 h-px bg-gradient-to-r from-transparent via-[#b8893a] to-transparent opacity-0 transition-opacity duration-300 hover:opacity-100" />
             </a>
           ))}
         </nav>
-        <a
-          href="#enquire"
-          className="hidden sm:inline-flex items-center gap-2 rounded-full bg-foreground text-background px-5 py-2.5 text-[11px] uppercase tracking-[0.24em] hover:bg-foreground/85 transition-colors"
+
+        <div className="hidden lg:flex items-center gap-4">
+          <a
+            href="#enquire"
+            className="inline-flex items-center gap-2 rounded-full bg-foreground text-background px-5 py-2.5 text-[11px] uppercase tracking-[0.24em] hover:bg-foreground/85 transition-colors"
+          >
+            Enquire <ArrowRight className="h-3 w-3" />
+          </a>
+          <a
+            href="https://wa.me/919800000000"
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex items-center gap-2 rounded-full bg-[#25D366] text-white px-5 py-2.5 text-[11px] uppercase tracking-[0.24em] hover:bg-[#20BA5A] transition-colors"
+          >
+            WhatsApp
+          </a>
+        </div>
+
+        <button
+          type="button"
+          className="inline-flex h-11 w-11 items-center justify-center lg:hidden"
+          aria-label="Toggle menu"
+          onClick={() => setMenuOpen((open) => !open)}
         >
-          Enquire <ArrowRight className="h-3 w-3" />
-        </a>
+          <span className="relative flex h-6 w-6 items-center justify-center">
+            
+            {/* Top Line */}
+            <span
+              className={`absolute h-[2px] w-6 rounded-full bg-current transition-all duration-300 ease-in-out ${
+                menuOpen
+                  ? "rotate-45 translate-y-0"
+                  : "-translate-y-2"
+              }`}
+            />
+
+            {/* Middle Line */}
+            <span
+              className={`absolute h-[2px] w-6 rounded-full bg-current transition-all duration-300 ease-in-out ${
+                menuOpen
+                  ? "opacity-0"
+                  : "opacity-100"
+              }`}
+            />
+
+            {/* Bottom Line */}
+            <span
+              className={`absolute h-[2px] w-6 rounded-full bg-current transition-all duration-300 ease-in-out ${
+                menuOpen
+                  ? "-rotate-45 translate-y-0"
+                  : "translate-y-2"
+              }`}
+            />
+            
+          </span>
+        </button>
       </div>
+
+      <AnimatePresence>
+        {menuOpen ? (
+          <motion.div
+            initial={{ opacity: 0, y: -12 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -12 }}
+            className="lg:hidden"
+          >
+            <div className="mx-auto max-w-7xl px-6 pb-6 lg:px-10">
+              <div className="mt-4 overflow-hidden rounded-[2rem] border border-white/60 bg-white/90 p-6 shadow-[0_35px_80px_-30px_rgba(60,40,20,0.35)] backdrop-blur-xl">
+                <div className="grid gap-4">
+                  {links.map(([label, href]) => (
+                    <a
+                      key={href}
+                      href={href}
+                      onClick={() => setMenuOpen(false)}
+                      className="rounded-3xl px-4 py-4 text-[15px] font-semibold uppercase tracking-[0.28em] text-foreground/80 transition hover:bg-[#f5eedc]"
+                    >
+                      {label}
+                    </a>
+                  ))}
+                  <a
+                    href="#enquire"
+                    onClick={() => setMenuOpen(false)}
+                    className="inline-flex items-center justify-center rounded-full bg-foreground text-background px-5 py-3 text-[12px] uppercase tracking-[0.24em] hover:bg-foreground/90 transition-colors"
+                  >
+                    Enquire
+                  </a>
+                  <a
+                    href="https://wa.me/919800000000"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="inline-flex items-center justify-center rounded-full bg-[#25D366] text-white px-5 py-3 text-[12px] uppercase tracking-[0.24em] hover:bg-[#20BA5A] transition-colors"
+                  >
+                    WhatsApp
+                  </a>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+        ) : null}
+      </AnimatePresence>
     </motion.header>
   );
 }
@@ -1080,7 +1167,8 @@ function Enquire() {
           <SectionLabel>10 / Request a Consultation</SectionLabel>
           <Reveal>
             <h2 className="font-serif text-[clamp(2.4rem,5vw,4.5rem)] leading-[1.02] text-balance">
-              Speak to a<em className="italic gold-text-dark"> Senior Advisor.</em>
+              Speak to a
+              <em className="italic gold-text-dark"> Senior Advisor.</em>
             </h2>
           </Reveal>
           <Reveal delay={0.15}>
