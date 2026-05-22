@@ -1,0 +1,55 @@
+# TATRA STAR CITY Robot Configuration
+# Allow all crawlers for public content
+
+User-agent: *
+Allow: /
+Allow: /api/
+Disallow: /.next/
+Disallow: /private/
+Disallow: *?*sort=
+Disallow: *?*page=
+Crawl-delay: 0
+Request-rate: 1 per second
+
+# Google-specific
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0
+
+# Bing-specific
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+# Specific bots
+User-agent: AdsBot-Google
+Allow: /
+
+User-agent: facebookexternalhit
+Allow: /
+
+User-agent: Twitterbot
+Allow: /
+
+User-agent: LinkedInBot
+Allow: /
+
+User-agent: WhatsApp
+Allow: /
+
+User-agent: Slurp
+Allow: /
+
+# Block bad bots
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
+
+# Sitemaps
+Sitemap: https://staar-city.com/sitemap.xml
+Sitemap: https://staar-city.com/sitemap-index.xml

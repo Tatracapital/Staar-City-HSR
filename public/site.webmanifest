@@ -1,0 +1,79 @@
+{
+  "name": "TATRA STAR CITY - Premium Township Investment",
+  "short_name": "TATRA STAR CITY",
+  "description": "A premium plotted development crafted for future-focused investors and elevated living.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "theme_color": "#b8893a",
+  "background_color": "#f7f1e3",
+  "categories": ["real estate", "investment", "lifestyle"],
+  "screenshots": [
+    {
+      "src": "/screenshot-wide.png",
+      "sizes": "1280x720",
+      "type": "image/png",
+      "form_factor": "wide"
+    },
+    {
+      "src": "/screenshot-mobile.png",
+      "sizes": "540x720",
+      "type": "image/png",
+      "form_factor": "narrow"
+    }
+  ],
+  "icons": [
+    {
+      "src": "/favicon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/favicon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/favicon-maskable-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/favicon-maskable-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Enquire Now",
+      "short_name": "Enquire",
+      "description": "Start your enquiry process",
+      "url": "/#enquire",
+      "icons": [
+        {
+          "src": "/icon-enquire.png",
+          "sizes": "96x96"
+        }
+      ]
+    },
+    {
+      "name": "View Master Plan",
+      "short_name": "Master Plan",
+      "description": "View the complete master plan",
+      "url": "/#masterplan",
+      "icons": [
+        {
+          "src": "/icon-masterplan.png",
+          "sizes": "96x96"
+        }
+      ]
+    }
+  ],
+  "prefer_related_applications": false
+}

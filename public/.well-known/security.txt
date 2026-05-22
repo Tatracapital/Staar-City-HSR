@@ -1,0 +1,4 @@
+Contact: security@tatracapital.com
+Expires: 2027-05-22T15:30:00Z
+Preferred-Languages: en
+Canonical: https://staar-city.com/.well-known/security.txt
