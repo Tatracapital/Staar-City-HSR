@@ -10,11 +10,15 @@
     "target": "ES2022",
     "jsx": "preserve",
     "module": "ESNext",
-    "lib": ["ES2022", "DOM", "DOM.Iterable"],
-    "types": ["next"],
+    "lib": [
+      "ES2022",
+      "DOM",
+      "DOM.Iterable"
+    ],
+    "types": [
+      "next"
+    ],
     "baseUrl": ".",
-    "ignoreDeprecations": "6.0",
-    
     /* Bundler mode */
     "verbatimModuleSyntax": false,
     "noEmit": true,
@@ -26,7 +30,9 @@
     "noFallthroughCasesInSwitch": true,
     "noUncheckedSideEffectImports": true,
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": [
+        "./src/*"
+      ]
     },
     "allowJs": true,
     "incremental": true,
@@ -37,7 +43,12 @@
       {
         "name": "next"
       }
-    ]
+    ],
+    "moduleResolution": "node"
   },
-  "exclude": ["node_modules", "src/server.ts", "src/start.ts"]
+  "exclude": [
+    "node_modules",
+    "src/server.ts",
+    "src/start.ts"
+  ]
 }
