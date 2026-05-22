@@ -97,19 +97,28 @@
   --sidebar-border: oklch(0.88 0.012 78);
   --sidebar-ring: oklch(0.72 0.11 75);
 
-  --font-serif: 'Cormorant Garamond', 'Playfair Display', Georgia, serif;
-  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-serif: "Cormorant Garamond", "Playfair Display", Georgia, serif;
+  --font-sans: "Inter", system-ui, -apple-system, sans-serif;
 }
 
 @layer base {
-  * { border-color: var(--color-border); }
-  html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+  * {
+    border-color: var(--color-border);
+  }
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+  }
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
     font-family: var(--font-sans);
   }
-  h1, h2, h3, h4, .font-serif {
+  h1,
+  h2,
+  h3,
+  h4,
+  .font-serif {
     font-family: var(--font-serif);
     letter-spacing: -0.02em;
     font-weight: 400;
@@ -117,9 +126,17 @@
 }
 
 @layer utilities {
-  .text-balance { text-wrap: balance; }
+  .text-balance {
+    text-wrap: balance;
+  }
   .gold-text {
-    background: linear-gradient(135deg, #b8893a 0%, #e7c986 45%, #8c6a2a 100%);
+    background: linear-gradient(135deg, #b8893a 0%, #d4a967 45%, #8c6a2a 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .gold-text-dark {
+    background: linear-gradient(135deg, #7a5c2a 0%, #9d7a3d 45%, #5a4a1a 100%);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
@@ -139,19 +156,43 @@
     -webkit-backdrop-filter: blur(24px) saturate(140%);
     border: 1px solid rgba(255, 255, 255, 0.18);
   }
-  .marquee-track { animation: marquee 38s linear infinite; }
+  .marquee-track {
+    animation: marquee 38s linear infinite;
+  }
   @keyframes marquee {
-    from { transform: translateX(0); }
-    to { transform: translateX(-50%); }
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
   }
-  .scroll-pulse { animation: scroll-pulse 2.2s ease-in-out infinite; }
+  .scroll-pulse {
+    animation: scroll-pulse 2.2s ease-in-out infinite;
+  }
   @keyframes scroll-pulse {
-    0%, 100% { transform: translateY(0); opacity: 0.4; }
-    50% { transform: translateY(8px); opacity: 1; }
+    0%,
+    100% {
+      transform: translateY(0);
+      opacity: 0.4;
+    }
+    50% {
+      transform: translateY(8px);
+      opacity: 1;
+    }
   }
-  .ping-slow { animation: pingSlow 2.4s cubic-bezier(0,0,0.2,1) infinite; }
+  .ping-slow {
+    animation: pingSlow 2.4s cubic-bezier(0, 0, 0.2, 1) infinite;
+  }
   @keyframes pingSlow {
-    0% { transform: scale(1); opacity: 0.8; }
-    75%, 100% { transform: scale(2.4); opacity: 0; }
+    0% {
+      transform: scale(1);
+      opacity: 0.8;
+    }
+    75%,
+    100% {
+      transform: scale(2.4);
+      opacity: 0;
+    }
   }
 }

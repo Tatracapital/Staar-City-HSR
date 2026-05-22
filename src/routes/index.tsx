@@ -233,14 +233,14 @@ function Hero() {
 
         <Reveal delay={0.55}>
           <h1 className="font-serif text-[clamp(2.8rem,8vw,7.5rem)] leading-[0.95] text-balance text-foreground">
-            Where <em className="not-italic gold-text">Vision</em>
+            Where <em className="not-italic gold-text-dark">Vision</em>
             <br />
             Meets <em className="italic font-light">Value.</em>
           </h1>
         </Reveal>
 
         <Reveal delay={0.85}>
-          <p className="mx-auto mt-7 max-w-xl text-[15px] leading-relaxed text-foreground/70">
+          <p className="mx-auto mt-7 max-w-xl text-[22px] leading-relaxed text-foreground/70">
             A premium plotted development crafted for future-focused investors
             and an elevated way of living — held between two lakes, drawn by
             master planners.
@@ -324,7 +324,7 @@ function Vision() {
             <h2 className="font-serif text-[clamp(2.5rem,5vw,4.5rem)] leading-[1.02] text-balance">
               A city composed
               <br />
-              like a piece of <em className="italic gold-text">music.</em>
+              like a piece of <em className="italic gold-text-dark">music.</em>
             </h2>
           </Reveal>
           <Reveal delay={0.15}>
@@ -1080,7 +1080,7 @@ function Enquire() {
           <SectionLabel>10 / Request a Consultation</SectionLabel>
           <Reveal>
             <h2 className="font-serif text-[clamp(2.4rem,5vw,4.5rem)] leading-[1.02] text-balance">
-              Speak to a<em className="italic gold-text"> Senior Advisor.</em>
+              Speak to a<em className="italic gold-text-dark"> Senior Advisor.</em>
             </h2>
           </Reveal>
           <Reveal delay={0.15}>
@@ -1102,7 +1102,7 @@ function Enquire() {
                 href="https://wa.me/919800000000"
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center gap-2 mt-2 text-[#b8893a] hover:underline underline-offset-4"
+                className="inline-flex items-center gap-2 mt-2 px-4 py-2 rounded-full bg-[#25D366] text-white text-[12px] uppercase tracking-[0.24em] hover:bg-[#20BA5A] transition-colors"
               >
                 Chat on WhatsApp <ArrowUpRight className="h-3 w-3" />
               </a>
