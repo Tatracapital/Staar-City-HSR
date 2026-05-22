@@ -73,16 +73,18 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       meta: [
         { charSet: "utf-8" },
         { name: "viewport", content: "width=device-width, initial-scale=1" },
-        { title: "TATRA STAR CITY — Where Vision Meets Value | TATRA Capital" },
+        {
+          title: "TATRA STAAR CITY — Where Vision Meets Value | TATRA Capital",
+        },
         {
           name: "description",
           content:
-            "TATRA STAR CITY by TATRA Capital — a premium plotted township between two lakes. Strategic location, modern infrastructure and future-ready investment for elevated living.",
+            "TATRA STAAR CITY by TATRA Capital — a premium plotted township between two lakes. Strategic location, modern infrastructure and future-ready investment for elevated living.",
         },
         { name: "author", content: "TATRA Capital" },
         {
           property: "og:title",
-          content: "TATRA STAR CITY — Where Vision Meets Value",
+          content: "TATRA STAAR CITY — Where Vision Meets Value",
         },
         {
           property: "og:description",

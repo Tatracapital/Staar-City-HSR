@@ -1,4 +1,4 @@
-# TATRA STAR CITY Robot Configuration
+# TATRA STAAR CITY Robot Configuration
 # Allow all crawlers for public content
 
 User-agent: *

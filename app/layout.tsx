@@ -3,16 +3,16 @@ import "../src/styles.css";
 import Providers from "./providers";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://staar-city.com";
-const siteName = "TATRA STAR CITY";
+const siteName = "TATRA STAAR CITY";
 const siteDescription =
-  "TATRA STAR CITY by TATRA Capital — a premium plotted township between two lakes. Strategic location, modern infrastructure, and future-ready investment for elevated living.";
+  "TATRA STAAR CITY by TATRA Capital — a premium plotted township between two lakes. Strategic location, modern infrastructure, and future-ready investment for elevated living.";
 const brandColor = "#b8893a";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "TATRA STAR CITY — Where Vision Meets Value | TATRA Capital",
-    template: "%s | TATRA STAR CITY",
+    default: "TATRA STAAR CITY — Where Vision Meets Value | TATRA Capital",
+    template: "%s | TATRA STAAR CITY",
   },
   description: siteDescription,
   keywords: [
@@ -55,28 +55,28 @@ export const metadata: Metadata = {
     locale: "en_IN",
     url: siteUrl,
     siteName: siteName,
-    title: "TATRA STAR CITY — Where Vision Meets Value",
+    title: "TATRA STAAR CITY — Where Vision Meets Value",
     description: siteDescription,
     images: [
       {
         url: `${siteUrl}/og-image.jpg`,
         width: 1200,
         height: 630,
-        alt: "TATRA STAR CITY - Premium Township",
+        alt: "TATRA STAAR CITY - Premium Township",
         type: "image/jpeg",
       },
       {
         url: `${siteUrl}/og-image-square.jpg`,
         width: 800,
         height: 800,
-        alt: "TATRA STAR CITY Logo",
+        alt: "TATRA STAAR CITY Logo",
         type: "image/jpeg",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "TATRA STAR CITY — Where Vision Meets Value",
+    title: "TATRA STAAR CITY — Where Vision Meets Value",
     description: siteDescription,
     images: [`${siteUrl}/og-image.jpg`],
     creator: "@TATRACapital",
@@ -146,18 +146,26 @@ export default function RootLayout({
         <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
         <meta name="theme-color" content={brandColor} />
         <meta name="color-scheme" content="light dark" />
-        
+
         {/* Search Engine Optimization */}
         <meta name="language" content="English" />
         <meta name="revisit-after" content="7 days" />
         <meta name="distribution" content="global" />
-        
+
         {/* Open Search */}
-        <link rel="search" type="application/opensearchdescription+xml" href="/opensearch.xml" />
-        
+        <link
+          rel="search"
+          type="application/opensearchdescription+xml"
+          href="/opensearch.xml"
+        />
+
         {/* Preconnect to external services */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link
+          rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossOrigin="anonymous"
+        />
         <link rel="dns-prefetch" href="https://www.google-analytics.com" />
         <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
 

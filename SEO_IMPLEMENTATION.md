@@ -1,6 +1,6 @@
 # SEO & Semantic Web Implementation Guide
 
-This document outlines the complete SEO optimization for TATRA STAR CITY website, covering search engines, semantic browsers, LLMs, and all possible crawlers.
+This document outlines the complete SEO optimization for TATRA STAAR CITY website, covering search engines, semantic browsers, LLMs, and all possible crawlers.
 
 ## ✅ Implemented SEO Features
 
@@ -154,8 +154,8 @@ export default function BlogPost() {
   return (
     <>
       <ArticleSchema
-        title="TATRA STAR CITY: Investment Guide"
-        description="Learn why TATRA STAR CITY is a smart investment"
+        title="TATRA STAAR CITY: Investment Guide"
+        description="Learn why TATRA STAAR CITY is a smart investment"
         image="https://staar-city.com/blog/investment-guide.jpg"
         datePublished="2026-05-22"
         dateModified="2026-05-22"

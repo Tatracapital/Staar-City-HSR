@@ -157,7 +157,7 @@ function Nav() {
         <a href="#top" className="flex items-center gap-3">
           <img
             src={logo.src}
-            alt="TATRA STAR CITY"
+            alt="TATRA STAAR CITY"
             className={`w-auto transition-all duration-200 ${scrolled ? "h-10" : "h-20"}`}
           />
         </a>
@@ -199,34 +199,26 @@ function Nav() {
           onClick={() => setMenuOpen((open) => !open)}
         >
           <span className="relative flex h-6 w-6 items-center justify-center">
-            
             {/* Top Line */}
             <span
               className={`absolute h-[2px] w-6 rounded-full bg-current transition-all duration-300 ease-in-out ${
-                menuOpen
-                  ? "rotate-45 translate-y-0"
-                  : "-translate-y-2"
+                menuOpen ? "rotate-45 translate-y-0" : "-translate-y-2"
               }`}
             />
 
             {/* Middle Line */}
             <span
               className={`absolute h-[2px] w-6 rounded-full bg-current transition-all duration-300 ease-in-out ${
-                menuOpen
-                  ? "opacity-0"
-                  : "opacity-100"
+                menuOpen ? "opacity-0" : "opacity-100"
               }`}
             />
 
             {/* Bottom Line */}
             <span
               className={`absolute h-[2px] w-6 rounded-full bg-current transition-all duration-300 ease-in-out ${
-                menuOpen
-                  ? "-rotate-45 translate-y-0"
-                  : "translate-y-2"
+                menuOpen ? "-rotate-45 translate-y-0" : "translate-y-2"
               }`}
             />
-            
           </span>
         </button>
       </div>
@@ -298,7 +290,7 @@ function Hero() {
       <motion.div style={{ scale, y }} className="absolute inset-0">
         <img
           src={heroImg.src}
-          alt="Aerial view of TATRA STAR CITY township between two lakes at golden hour"
+          alt="Aerial view of TATRA STAAR CITY township between two lakes at golden hour"
           width={1920}
           height={1080}
           className="h-full w-full object-cover"
@@ -416,7 +408,7 @@ function Vision() {
           </Reveal>
           <Reveal delay={0.15}>
             <p className="text-foreground/65 leading-relaxed max-w-md">
-              TATRA STAR CITY is not a project. It is a thesis — that the next
+              TATRA STAAR CITY is not a project. It is a thesis — that the next
               chapter of Indian real estate belongs to master-planned, plotted
               communities that hold land, nature and intent in equal measure.
             </p>
@@ -503,7 +495,7 @@ function Trust() {
               <p className="text-foreground/65 leading-relaxed">
                 TATRA Capital is a future-focused real estate house that has
                 spent decades stewarding land, capital and the trust of
-                investors. STAR CITY is the culmination of everything we have
+                investors. STAAR CITY is the culmination of everything we have
                 learned.
               </p>
             </Reveal>
@@ -547,7 +539,7 @@ function Location() {
       <div className="absolute inset-0">
         <img
           src={locationMap.src}
-          alt="Strategic location aerial map around TATRA STAR CITY"
+          alt="Strategic location aerial map around TATRA STAAR CITY"
           loading="lazy"
           width={1920}
           height={1080}
@@ -588,7 +580,7 @@ function Location() {
             </h2>
             <p className="mt-5 text-foreground/70 leading-relaxed text-[15px]">
               At the intersection of the new metro line, the regional IT
-              corridor and the commercial district — STAR CITY sits on a piece
+              corridor and the commercial district — STAAR CITY sits on a piece
               of land time will only make more valuable.
             </p>
 
@@ -889,8 +881,8 @@ function Lifestyle() {
           </Reveal>
           <Reveal delay={0.15}>
             <p className="text-foreground/65 leading-relaxed max-w-lg">
-              STAR CITY is built for families who want their children to grow up
-              in a place where wellness is the default, where nature is the
+              STAAR CITY is built for families who want their children to grow
+              up in a place where wellness is the default, where nature is the
               neighbour, and where the long-term value of land matches the
               long-term value of memory.
             </p>
@@ -959,7 +951,7 @@ function MasterPlanSection() {
           <motion.img
             style={{ scale }}
             src={masterPlan.src}
-            alt="TATRA STAR CITY master plan"
+            alt="TATRA STAAR CITY master plan"
             loading="lazy"
             className="w-full h-auto object-cover"
           />
@@ -1008,7 +1000,7 @@ function Investment() {
           <Reveal delay={0.15}>
             <p className="text-foreground/65 leading-relaxed max-w-md">
               Positioned in a high-growth corridor, anchored by trusted
-              development and built for long-term value creation — STAR CITY is
+              development and built for long-term value creation — STAAR CITY is
               a thesis on patient capital, written in land.
             </p>
           </Reveal>
@@ -1327,7 +1319,7 @@ function FinalCTA() {
           <h2 className="mt-8 font-serif text-[clamp(2.8rem,8vw,7.5rem)] leading-[0.95] text-white text-balance max-w-5xl">
             Own the future with
             <br />
-            <em className="italic gold-text">TATRA STAR CITY.</em>
+            <em className="italic gold-text">TATRA STAAR CITY.</em>
           </h2>
         </Reveal>
         <Reveal delay={0.25}>
@@ -1348,13 +1340,17 @@ function Footer() {
       <div className="mx-auto max-w-7xl px-6 lg:px-10 py-16 grid lg:grid-cols-12 gap-10">
         <div className="lg:col-span-5 space-y-5">
           <div className="flex items-center gap-3">
-            <img src={logo.src} alt="TATRA STAR CITY" className="h-12 w-auto" />
+            <img
+              src={logo.src}
+              alt="TATRA STAAR CITY"
+              className="h-12 w-auto"
+            />
             <div className="leading-tight">
               <div className="text-[10px] uppercase tracking-[0.32em] text-foreground/55">
                 TATRA Capital
               </div>
               <div className="text-[14px] font-medium tracking-[0.18em]">
-                STAR CITY
+                STAAR CITY
               </div>
             </div>
           </div>

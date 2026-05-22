@@ -63,7 +63,7 @@
 
 :root {
   --radius: 0.25rem;
-  /* TATRA STAR CITY — warm luxury palette */
+  /* TATRA STAAR CITY — warm luxury palette */
   --background: oklch(0.985 0.012 85);
   --foreground: oklch(0.28 0.012 60);
   --card: oklch(0.975 0.014 85);

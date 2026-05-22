@@ -153,35 +153,87 @@ export const FAQSchema = ({
  * Semantic HTML Helpers
  */
 export const SEMeta = {
-  h1: ({ children, className = "" }: { children: ReactNode; className?: string }) => (
-    <h1 className={`text-4xl font-bold ${className}`}>{children}</h1>
+  h1: ({
+    children,
+    className = "",
+  }: {
+    children: ReactNode;
+    className?: string;
+  }) => <h1 className={`text-4xl font-bold ${className}`}>{children}</h1>,
+  h2: ({
+    children,
+    className = "",
+  }: {
+    children: ReactNode;
+    className?: string;
+  }) => <h2 className={`text-3xl font-bold ${className}`}>{children}</h2>,
+  h3: ({
+    children,
+    className = "",
+  }: {
+    children: ReactNode;
+    className?: string;
+  }) => <h3 className={`text-2xl font-bold ${className}`}>{children}</h3>,
+  section: ({
+    children,
+    id,
+    className = "",
+  }: {
+    children: ReactNode;
+    id?: string;
+    className?: string;
+  }) => (
+    <section id={id} className={className}>
+      {children}
+    </section>
   ),
-  h2: ({ children, className = "" }: { children: ReactNode; className?: string }) => (
-    <h2 className={`text-3xl font-bold ${className}`}>{children}</h2>
-  ),
-  h3: ({ children, className = "" }: { children: ReactNode; className?: string }) => (
-    <h3 className={`text-2xl font-bold ${className}`}>{children}</h3>
-  ),
-  section: ({ children, id, className = "" }: { children: ReactNode; id?: string; className?: string }) => (
-    <section id={id} className={className}>{children}</section>
-  ),
-  article: ({ children, className = "" }: { children: ReactNode; className?: string }) => (
-    <article className={className}>{children}</article>
-  ),
-  nav: ({ children, className = "" }: { children: ReactNode; className?: string }) => (
-    <nav className={className}>{children}</nav>
-  ),
-  main: ({ children, className = "" }: { children: ReactNode; className?: string }) => (
-    <main className={className}>{children}</main>
-  ),
-  figure: ({ children, className = "" }: { children: ReactNode; className?: string }) => (
-    <figure className={className}>{children}</figure>
-  ),
-  figcaption: ({ children, className = "" }: { children: ReactNode; className?: string }) => (
-    <figcaption className={className}>{children}</figcaption>
-  ),
-  time: ({ children, dateTime, className = "" }: { children: ReactNode; dateTime: string; className?: string }) => (
-    <time dateTime={dateTime} className={className}>{children}</time>
+  article: ({
+    children,
+    className = "",
+  }: {
+    children: ReactNode;
+    className?: string;
+  }) => <article className={className}>{children}</article>,
+  nav: ({
+    children,
+    className = "",
+  }: {
+    children: ReactNode;
+    className?: string;
+  }) => <nav className={className}>{children}</nav>,
+  main: ({
+    children,
+    className = "",
+  }: {
+    children: ReactNode;
+    className?: string;
+  }) => <main className={className}>{children}</main>,
+  figure: ({
+    children,
+    className = "",
+  }: {
+    children: ReactNode;
+    className?: string;
+  }) => <figure className={className}>{children}</figure>,
+  figcaption: ({
+    children,
+    className = "",
+  }: {
+    children: ReactNode;
+    className?: string;
+  }) => <figcaption className={className}>{children}</figcaption>,
+  time: ({
+    children,
+    dateTime,
+    className = "",
+  }: {
+    children: ReactNode;
+    dateTime: string;
+    className?: string;
+  }) => (
+    <time dateTime={dateTime} className={className}>
+      {children}
+    </time>
   ),
 };
 
