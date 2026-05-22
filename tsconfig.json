@@ -14,9 +14,8 @@
     "types": ["next"],
     "baseUrl": ".",
     "ignoreDeprecations": "6.0",
+    
     /* Bundler mode */
-    "moduleResolution": "Bundler",
-    "allowImportingTsExtensions": true,
     "verbatimModuleSyntax": false,
     "noEmit": true,
     /* Linting */
