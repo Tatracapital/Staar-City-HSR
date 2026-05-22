@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 import "../src/styles.css";
 import Providers from "./providers";
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://staar-city.com";
+const siteUrl =
+  process.env.NEXT_PUBLIC_SITE_URL || "https://www.tatraprojects.com";
 const siteName = "TATRA STAAR CITY";
 const siteDescription =
   "TATRA STAAR CITY by TATRA Capital — a premium plotted township between two lakes. Strategic location, modern infrastructure, and future-ready investment for elevated living.";

@@ -4,12 +4,12 @@
         xmlns:mobile="http://www.google.com/schemas/sitemap-mobile/1.0">
   <!-- Homepage -->
   <url>
-    <loc>https://staar-city.com/</loc>
+    <loc>https://www.tatraprojects.com/</loc>
     <lastmod>2026-05-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <image:image>
-      <image:loc>https://staar-city.com/og-image.jpg</image:loc>
+      <image:loc>https://www.tatraprojects.com/og-image.jpg</image:loc>
       <image:title>TATRA STAAR CITY - Premium Township</image:title>
     </image:image>
   </url>

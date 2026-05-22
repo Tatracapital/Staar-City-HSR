@@ -51,5 +51,5 @@ User-agent: SemrushBot
 Disallow: /
 
 # Sitemaps
-Sitemap: https://staar-city.com/sitemap.xml
-Sitemap: https://staar-city.com/sitemap-index.xml
+Sitemap: https://www.tatraprojects.com/sitemap.xml
+Sitemap: https://www.tatraprojects.com/sitemap-index.xml

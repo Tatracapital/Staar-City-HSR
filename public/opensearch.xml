@@ -2,9 +2,9 @@
 <OpenSearchDescription xmlns="http://a9.com/-/spec/opensearch/1.1/">
   <ShortName>TATRA STAAR CITY</ShortName>
   <Description>Search TATRA STAAR CITY</Description>
-  <Url type="text/html" method="get" template="https://staar-city.com/?q={searchTerms}"/>
-  <Url type="application/opensearchdescription+xml" rel="self" href="https://staar-city.com/opensearch.xml"/>
-  <Image height="16" width="16" type="image/x-icon">https://staar-city.com/favicon.ico</Image>
+  <Url type="text/html" method="get" template="https://www.tatraprojects.com/?q={searchTerms}"/>
+  <Url type="application/opensearchdescription+xml" rel="self" href="https://www.tatraprojects.com/opensearch.xml"/>
+  <Image height="16" width="16" type="image/x-icon">https://www.tatraprojects.com/favicon.ico</Image>
   <Contact>info@tatracapital.com</Contact>
   <SyndicationRight>open</SyndicationRight>
   <Developer>TATRA Capital</Developer>
