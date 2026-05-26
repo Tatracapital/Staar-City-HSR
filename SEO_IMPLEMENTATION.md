@@ -65,7 +65,7 @@ cp .env.example .env.local
 Update these values:
 
 ```env
-NEXT_PUBLIC_SITE_URL=https://staar-city.com
+NEXT_PUBLIC_SITE_URL=https://www.tatraprojects.com
 NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION=your-google-verification-code
 NEXT_PUBLIC_GOOGLE_ANALYTICS_ID=G-XXXXXXXXXX
 NEXT_PUBLIC_PHONE=+91-98000-00000
@@ -77,9 +77,9 @@ NEXT_PUBLIC_LONGITUDE=77.6063
 ### 2. Google Search Console Setup
 
 1. Go to [Google Search Console](https://search.google.com/search-console)
-2. Add property (https://staar-city.com)
+2. Add property (https://www.tatraprojects.com)
 3. Verify with meta tag (put verification code in `.env.local`)
-4. Submit sitemap: `https://staar-city.com/sitemap.xml`
+4. Submit sitemap: `https://www.tatraprojects.com/sitemap.xml`
 5. Request indexing for homepage
 
 ### 3. Image Optimization
@@ -96,7 +96,7 @@ Create these images in `public/` directory:
 ### 4. Bing Webmaster Tools
 
 1. Go to [Bing Webmaster Tools](https://www.bing.com/webmasters)
-2. Add `https://staar-city.com`
+2. Add `https://www.tatraprojects.com`
 3. Verify and submit sitemap
 4. Configure crawl settings
 
@@ -135,8 +135,8 @@ export default function Page() {
     <>
       <BreadcrumbSchema
         items={[
-          { name: "Home", url: "https://staar-city.com" },
-          { name: "Vision", url: "https://staar-city.com/#vision" },
+          { name: "Home", url: "https://www.tatraprojects.com" },
+          { name: "Vision", url: "https://www.tatraprojects.com/#vision" },
         ]}
       />
       {/* Your content */}
@@ -156,7 +156,7 @@ export default function BlogPost() {
       <ArticleSchema
         title="TATRA STAAR CITY: Investment Guide"
         description="Learn why TATRA STAAR CITY is a smart investment"
-        image="https://staar-city.com/blog/investment-guide.jpg"
+        image="https://www.tatraprojects.com/blog/investment-guide.jpg"
         datePublished="2026-05-22"
         dateModified="2026-05-22"
         author="TATRA Capital"
@@ -209,13 +209,13 @@ Run these checks to verify SEO setup:
 
 ```bash
 # Verify robots.txt
-curl https://staar-city.com/robots.txt
+curl https://www.tatraprojects.com/robots.txt
 
 # Verify sitemap
-curl https://staar-city.com/sitemap.xml
+curl https://www.tatraprojects.com/sitemap.xml
 
 # Verify manifest
-curl https://staar-city.com/site.webmanifest
+curl https://www.tatraprojects.com/site.webmanifest
 
 # Check with Google Rich Results Tester
 # https://search.google.com/test/rich-results

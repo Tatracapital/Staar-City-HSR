@@ -36,9 +36,10 @@ import {
   Check,
 } from "lucide-react";
 
-import logo from "@/assets/logo.png";
-import heroImg from "@/assets/hero-aerial.jpg";
-import locationMap from "@/assets/location-map.jpg";
+import logo from "@/assets/Logo-TATRA.png";
+import logoVariation from "@/assets/Logo  - TATRA VARIATION-01.png";
+import heroImg from "@/assets/Asset 3@4x.png";
+import locationMap from "@/assets/location-map.png";
 import amenityPool from "@/assets/amenity-pool.jpg";
 import amenityClubhouse from "@/assets/amenity-clubhouse.jpg";
 import amenityYoga from "@/assets/amenity-yoga.jpg";
@@ -46,9 +47,19 @@ import amenityTrack from "@/assets/amenity-track.jpg";
 import masterPlan from "@/assets/master-plan.jpg";
 import lifestyleFamily from "@/assets/lifestyle-family.jpg";
 import galleryLake from "@/assets/gallery-lake.jpg";
+import lakegallery from "@/assets/image 10.png";
+import lakegallery2 from "@/assets/image 12.png";
 import galleryAvenue from "@/assets/gallery-avenue.jpg";
 import galleryGarden from "@/assets/gallery-garden.jpg";
 import ctaDusk from "@/assets/cta-dusk.jpg";
+import hero2 from "@/assets/image 8.png";
+import hero3 from "@/assets/image 9.png";
+import lake1 from "@/assets/Lake 1.png";
+import lake2 from "@/assets/Lake 2.png";
+import lake3 from "@/assets/Lake 3.png";
+import lake4 from "@/assets/Lake 4.png";
+import lake5 from "@/assets/lake 5.png";
+import footerbg from "@/assets/footerbg.png";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -105,16 +116,37 @@ function GoldButton({
   className?: string;
 }) {
   const base =
-    "group relative inline-flex items-center gap-3 px-7 py-3.5 text-[12px] uppercase tracking-[0.28em] transition-all duration-500";
+    "group relative inline-flex items-center gap-3 px-7 py-3.5 text-[12px] uppercase tracking-[0.28em]";
   const styles =
     variant === "solid"
-      ? "text-white bg-gradient-to-br from-[#b8893a] via-[#d4a85a] to-[#8c6a2a] hover:shadow-[0_20px_50px_-20px_rgba(184,137,58,0.6)]"
-      : "text-foreground border border-foreground/30 hover:border-foreground/70 backdrop-blur-md bg-white/40";
+      ? "text-white bg-gradient-to-br from-[#b8893a] via-[#d4a85a] to-[#8c6a2a]"
+      : "text-foreground border border-foreground/30 backdrop-blur-md bg-white/40";
   return (
-    <a href={href ?? "#"} className={`${base} ${styles} ${className}`}>
-      <span>{children}</span>
-      <ArrowUpRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-    </a>
+    <motion.a
+      href={href ?? "#"}
+      className={`${base} ${styles} ${className}`}
+      whileHover={{ scale: 1.05 }}
+      whileTap={{ scale: 0.98 }}
+      transition={{ duration: 0.3 }}
+    >
+      {variant === "solid" && (
+        <motion.div
+          className="absolute inset-0 bg-gradient-to-br from-[#d4a85a] via-[#e7c986] to-[#b8893a] rounded-sm opacity-0 group-hover:opacity-100 transition-opacity"
+          initial={false}
+        />
+      )}
+      <span className="relative flex items-center gap-3">
+        <span>{children}</span>
+        <motion.div
+          className="relative"
+          animate={{ x: 0, y: 0 }}
+          whileHover={{ x: 2, y: -2 }}
+          transition={{ duration: 0.3 }}
+        >
+          <ArrowUpRight className="h-3.5 w-3.5" />
+        </motion.div>
+      </span>
+    </motion.a>
   );
 }
 
@@ -124,7 +156,7 @@ function Nav() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 40);
+    const onScroll = () => setScrolled(window.scrollY > 100);
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
@@ -133,6 +165,7 @@ function Nav() {
     ["Vision", "#vision"],
     ["Location", "#location"],
     ["Highlights", "#highlights"],
+    ["Lakes", "#lakes"],
     ["Amenities", "#amenities"],
     ["Master Plan", "#masterplan"],
     ["Gallery", "#gallery"],
@@ -142,55 +175,59 @@ function Nav() {
       initial={{ y: -40, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 1, ease, delay: 0.2 }}
-      className={`fixed inset-x-0 top-0 z-50 transition-all duration-700 ${
-        scrolled ? "py-3" : "py-6"
-      }`}
+      className={`fixed inset-x-0 top-0 z-50 transition-all duration-700`}
+      style={{ paddingTop: "15px", paddingBottom: "15px" }}
     >
       <div
         className={`mx-auto flex max-w-7xl items-center justify-between px-6 lg:px-10 transition-all ${
           scrolled
-            ? "rounded-full bg-white/80 backdrop-blur-xl border border-white/60 shadow-[0_10px_40px_-20px_rgba(60,40,20,0.18)] py-3"
+            ? "rounded-full bg-white/85 backdrop-blur-xl border border-white/70 shadow-[0_10px_40px_-20px_rgba(60,40,20,0.25)]"
             : ""
         }`}
         style={scrolled ? { maxWidth: "76rem" } : {}}
       >
         <a href="#top" className="flex items-center gap-3">
           <img
-            src={logo.src}
+            src={scrolled ? logoVariation.src : logo.src}
             alt="TATRA STAAR CITY"
-            className={`w-auto transition-all duration-200 ${scrolled ? "h-10" : "h-20"}`}
+            className="w-auto h-24 transition-all duration-300"
           />
         </a>
 
-        <nav className="hidden lg:flex items-center gap-8 text-[12px] uppercase tracking-[0.22em] text-foreground/75">
+        <nav className="hidden lg:flex items-center gap-8 text-[12px] uppercase tracking-[0.22em] transition-colors" style={{ color: scrolled ? "#1a1a1a" : "rgba(255,255,255,0.85)" }}>
           {links.map(([label, href]) => (
             <a
               key={href}
               href={href}
-              className="relative transition-colors hover:text-foreground"
+              className="relative transition-colors hover:opacity-70"
+              style={{ color: "inherit" }}
             >
               {label}
-              <span className="absolute inset-x-0 -bottom-1 h-px bg-gradient-to-r from-transparent via-[#b8893a] to-transparent opacity-0 transition-opacity duration-300 hover:opacity-100" />
+              <span className="absolute inset-x-0 -bottom-1 h-px bg-gradient-to-r from-transparent via-[#8b7355] to-transparent opacity-0 transition-opacity duration-300 hover:opacity-100" />
             </a>
           ))}
         </nav>
 
-        <div className="hidden lg:flex items-center gap-4">
-          <a
+        <motion.div className="hidden lg:flex items-center gap-4">
+          <motion.a
             href="#enquire"
-            className="inline-flex items-center gap-2 rounded-full bg-foreground text-background px-5 py-2.5 text-[11px] uppercase tracking-[0.24em] hover:bg-foreground/85 transition-colors"
+            className="inline-flex items-center gap-2 rounded-full bg-gradient-to-br from-[#8b7355] to-[#5c4a3d] text-white px-5 py-2.5 text-[11px] uppercase tracking-[0.24em] transition-all"
+            whileHover={{ scale: 1.05, boxShadow: "0 10px 30px -10px rgba(139,115,85,0.3)" }}
+            whileTap={{ scale: 0.98 }}
           >
             Enquire <ArrowRight className="h-3 w-3" />
-          </a>
-          <a
+          </motion.a>
+          <motion.a
             href="https://wa.me/919800000000"
             target="_blank"
             rel="noreferrer"
-            className="inline-flex items-center gap-2 rounded-full bg-[#25D366] text-white px-5 py-2.5 text-[11px] uppercase tracking-[0.24em] hover:bg-[#20BA5A] transition-colors"
+            className="inline-flex items-center gap-2 rounded-full bg-[#25D366] text-white px-5 py-2.5 text-[11px] uppercase tracking-[0.24em] transition-all hover:bg-[#20BA5A]"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.98 }}
           >
             WhatsApp
-          </a>
-        </div>
+          </motion.a>
+        </motion.div>
 
         <button
           type="button"
@@ -281,6 +318,21 @@ function Hero() {
   const scale = useTransform(scrollYProgress, [0, 1], [1, 1.12]);
   const opacity = useTransform(scrollYProgress, [0, 0.9], [1, 0]);
 
+  const heroImages = [
+    { src: heroImg.src, alt: "Aerial view of TATRA STAAR CITY township between two lakes at golden hour" },
+    { src: hero2.src, alt: "Another view of TATRA STAAR CITY" },
+    { src: hero3.src, alt: "Yet another view of TATRA STAAR CITY" },
+  ];
+
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prev) => (prev + 1) % heroImages.length);
+    }, 5000);
+    return () => clearInterval(interval);
+  }, [heroImages.length]);
+
   return (
     <section
       id="top"
@@ -288,38 +340,69 @@ function Hero() {
       className="relative h-[100svh] min-h-[720px] w-full overflow-hidden"
     >
       <motion.div style={{ scale, y }} className="absolute inset-0">
-        <img
-          src={heroImg.src}
-          alt="Aerial view of TATRA STAAR CITY township between two lakes at golden hour"
-          width={1920}
-          height={1080}
-          className="h-full w-full object-cover"
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-[#f7f1e3]/30 via-transparent to-[#f7f1e3]/85" />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#f7f1e3]/30 via-transparent to-[#f7f1e3]/20" />
+        <AnimatePresence mode="wait">
+          <motion.img
+            key={currentImageIndex}
+            src={heroImages[currentImageIndex].src}
+            alt={heroImages[currentImageIndex].alt}
+            width={1920}
+            height={1080}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 1, ease: "easeInOut" }}
+            className="h-full w-full object-cover absolute inset-0"
+          />
+        </AnimatePresence>
+        <div className="absolute inset-0 bg-gradient-to-b from-black/55 via-black/35 to-black/65" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/45 via-transparent to-black/35" />
+        <div className="absolute inset-0 bg-radial-to-center opacity-40 from-transparent to-black/50" />
       </motion.div>
+
+      {/* Image carousel indicators */}
+      <div className="absolute bottom-32 left-1/2 -translate-x-1/2 z-20 flex gap-2">
+        {heroImages.map((_, index) => (
+          <motion.button
+            key={index}
+            onClick={() => setCurrentImageIndex(index)}
+            className={`h-1.5 rounded-full transition-all ${
+              index === currentImageIndex
+                ? "bg-white w-8"
+                : "bg-white/40 w-1.5 hover:bg-white/60"
+            }`}
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.95 }}
+          />
+        ))}
+      </div>
 
       <motion.div
         style={{ opacity }}
         className="relative z-10 flex h-full flex-col items-center justify-center px-6 text-center"
       >
         <Reveal delay={0.4} y={20}>
-          <div className="mb-6 inline-flex items-center gap-3 rounded-full glass px-5 py-2 text-[10px] uppercase tracking-[0.34em] text-foreground/80">
-            <span className="h-1.5 w-1.5 rounded-full bg-[#c9a24c]" />
+          <motion.div
+            className="mb-6 inline-flex items-center gap-3 rounded-full backdrop-blur-md bg-white/20 px-5 py-2 text-[10px] uppercase tracking-[0.34em] text-white border border-white/40 shadow-lg"
+          >
+            <motion.span
+              animate={{ opacity: [0.5, 1, 0.5] }}
+              transition={{ duration: 2, repeat: Infinity }}
+              className="h-1.5 w-1.5 rounded-full bg-white"
+            />
             New launch · An Investment Address
-          </div>
+          </motion.div>
         </Reveal>
 
         <Reveal delay={0.55}>
-          <h1 className="font-serif text-[clamp(2.8rem,8vw,7.5rem)] leading-[0.95] text-balance text-foreground">
-            Where <em className="not-italic gold-text-dark">Vision</em>
+          <h1 className="font-serif text-[clamp(2.8rem,8vw,7.5rem)] leading-[0.95] text-balance text-white drop-shadow-2xl">
+            Where <em className="not-italic text-white font-light">Vision</em>
             <br />
-            Meets <em className="italic font-light">Value.</em>
+            Meets <em className="italic font-light text-white">Value.</em>
           </h1>
         </Reveal>
 
         <Reveal delay={0.85}>
-          <p className="mx-auto mt-7 max-w-xl text-[22px] leading-relaxed text-foreground/70">
+          <p className="mx-auto mt-7 max-w-xl text-[22px] leading-relaxed text-white/95 drop-shadow-lg">
             A premium plotted development crafted for future-focused investors
             and an elevated way of living — held between two lakes, drawn by
             master planners.
@@ -336,29 +419,44 @@ function Hero() {
         </Reveal>
 
         <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 2 }}
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 2, duration: 0.8 }}
           className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3"
         >
-          <span className="text-[10px] uppercase tracking-[0.34em] text-foreground/55">
-            Scroll
+          <span className="text-[10px] uppercase tracking-[0.34em] text-white/80">
+            Scroll to Explore
           </span>
-          <ChevronDown className="h-4 w-4 text-foreground/55 scroll-pulse" />
+          <motion.div
+            animate={{ y: [0, 6, 0] }}
+            transition={{ duration: 2, repeat: Infinity }}
+          >
+            <ChevronDown className="h-5 w-5 text-white/90" />
+          </motion.div>
         </motion.div>
       </motion.div>
 
       {/* corner refs */}
-      <div className="pointer-events-none absolute top-28 left-6 lg:left-10 z-10 hidden md:block">
-        <div className="text-[10px] uppercase tracking-[0.34em] text-foreground/60">
+      <motion.div
+        initial={{ opacity: 0, x: -20 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ delay: 0.6, duration: 0.8 }}
+        className="pointer-events-none absolute top-28 left-6 lg:left-10 z-10 hidden md:block"
+      >
+        <div className="text-[10px] uppercase tracking-[0.34em] text-white/90 drop-shadow-lg">
           A TATRA Capital Development
         </div>
-      </div>
-      <div className="pointer-events-none absolute bottom-10 right-6 lg:right-10 z-10 hidden md:block text-right">
-        <div className="text-[10px] uppercase tracking-[0.34em] text-foreground/60">
+      </motion.div>
+      <motion.div
+        initial={{ opacity: 0, x: 20 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ delay: 0.6, duration: 0.8 }}
+        className="pointer-events-none absolute bottom-10 right-6 lg:right-10 z-10 hidden md:block text-right"
+      >
+        <div className="text-[10px] uppercase tracking-[0.34em] text-white/90 drop-shadow-lg">
           Master Planned · Plotted · Future-Ready
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 }
@@ -478,7 +576,7 @@ function Trust() {
     { n: "AAA", l: "Investor Confidence Rating" },
   ];
   return (
-    <section className="relative py-28 lg:py-36 bg-gradient-to-b from-secondary/40 via-background to-background">
+    <section className="relative py-28 lg:py-36 bg-gradient-to-b from-secondary/40 via-background to-background overflow-hidden">
       <div className="mx-auto max-w-7xl px-6 lg:px-10">
         <div className="grid lg:grid-cols-12 gap-10 items-end">
           <div className="lg:col-span-7 space-y-6">
@@ -505,14 +603,24 @@ function Trust() {
         <div className="mt-20 grid grid-cols-2 lg:grid-cols-4 gap-px bg-foreground/10 border border-foreground/10">
           {stats.map((s, i) => (
             <Reveal key={s.l} delay={i * 0.08}>
-              <div className="bg-background p-8 lg:p-10 h-full flex flex-col justify-between gap-10 min-h-[200px]">
-                <div className="font-serif text-5xl lg:text-6xl gold-text">
+              <motion.div
+                whileHover={{ y: -8, boxShadow: "0 20px 60px -20px rgba(184,137,58,0.2)" }}
+                transition={{ duration: 0.4 }}
+                className="bg-background p-8 lg:p-10 h-full flex flex-col justify-between gap-10 min-h-[200px] group cursor-default"
+              >
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.1 + 0.3, duration: 0.6 }}
+                  className="font-serif text-5xl lg:text-6xl gold-text group-hover:scale-110 transition-transform"
+                >
                   {s.n}
-                </div>
-                <div className="text-[11px] uppercase tracking-[0.28em] text-foreground/55">
+                </motion.div>
+                <div className="text-[11px] uppercase tracking-[0.28em] text-foreground/55 group-hover:text-foreground/75 transition-colors">
                   {s.l}
                 </div>
-              </div>
+              </motion.div>
             </Reveal>
           ))}
         </div>
@@ -524,67 +632,52 @@ function Trust() {
 /* -------------------------------- Location -------------------------------- */
 
 function Location() {
-  const pins = [
-    { x: "32%", y: "38%", label: "Metro Connectivity" },
-    { x: "58%", y: "28%", label: "International Airport" },
-    { x: "70%", y: "55%", label: "IT Corridor" },
-    { x: "40%", y: "62%", label: "Commercial Zone" },
-    { x: "22%", y: "70%", label: "Schools & Hospitals" },
-  ];
+  const ref = useRef<HTMLDivElement>(null);
+  const inView = useInView(ref, { once: true, margin: "-100px" });
+
   return (
     <section
+      ref={ref}
       id="location"
-      className="relative h-[100svh] min-h-[760px] w-full overflow-hidden"
+      className="relative w-full h-screen min-h-[720px] overflow-hidden flex items-center"
     >
-      <div className="absolute inset-0">
+      {/* Full screen map image */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={inView ? { opacity: 1 } : {}}
+        transition={{ duration: 1 }}
+        className="absolute inset-0 w-full h-full"
+      >
         <img
           src={locationMap.src}
-          alt="Strategic location aerial map around TATRA STAAR CITY"
+          alt="TATRA STAAR CITY location connectivity map showing metro stations, schools, hospitals, IT corridors and commercial zones"
           loading="lazy"
           width={1920}
           height={1080}
-          className="h-full w-full object-cover"
+          className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#f3ead5]/85 via-[#f3ead5]/40 to-transparent lg:via-transparent" />
-        <div className="absolute inset-0 bg-gradient-to-t from-background/70 via-transparent to-background/30" />
-      </div>
+      </motion.div>
 
-      {/* pins */}
-      {pins.map((p, i) => (
-        <motion.div
-          key={p.label}
-          initial={{ opacity: 0, scale: 0 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.4 + i * 0.18, duration: 0.6, ease }}
-          className="absolute z-10 hidden md:block"
-          style={{ left: p.x, top: p.y }}
-        >
-          <div className="relative">
-            <div className="absolute inset-0 h-3 w-3 rounded-full bg-[#c9a24c]/60 ping-slow" />
-            <div className="relative h-3 w-3 rounded-full bg-[#c9a24c] ring-2 ring-white shadow-md" />
-            <div className="absolute left-5 top-1/2 -translate-y-1/2 whitespace-nowrap rounded-full glass px-3 py-1.5 text-[10px] uppercase tracking-[0.22em] text-foreground/80">
-              {p.label}
-            </div>
-          </div>
-        </motion.div>
-      ))}
-
-      <div className="relative z-20 mx-auto flex h-full max-w-7xl items-center px-6 lg:px-10">
+      {/* Content Card on Top */}
+      <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-10 w-full">
         <Reveal>
-          <div className="ml-auto w-full max-w-md glass rounded-sm p-8 lg:p-10 shadow-[0_30px_80px_-30px_rgba(60,40,20,0.3)]">
+          <div className="w-full max-w-md rounded-sm p-8 lg:p-10 shadow-lg" style={{
+            background: "rgba(255, 255, 255, 0.35)",
+            backdropFilter: "blur(12px)",
+            border: "1px solid rgba(255, 255, 255, 0.5)"
+          }}>
             <SectionLabel>03 / Strategic Location</SectionLabel>
-            <h2 className="mt-6 font-serif text-[clamp(2rem,3.5vw,3.2rem)] leading-[1.05]">
+            <h2 className="mt-6 font-serif text-[clamp(2rem,3.5vw,3.2rem)] leading-[1.05] text-white drop-shadow-lg">
               Held at the centre of
-              <em className="italic gold-text"> tomorrow's city.</em>
+              <em className="italic gold-text drop-shadow-lg"> tomorrow's city.</em>
             </h2>
-            <p className="mt-5 text-foreground/70 leading-relaxed text-[15px]">
+            <p className="mt-5 text-white/95 leading-relaxed text-[15px] drop-shadow-md">
               At the intersection of the new metro line, the regional IT
               corridor and the commercial district — STAAR CITY sits on a piece
               of land time will only make more valuable.
             </p>
 
-            <ul className="mt-7 grid grid-cols-2 gap-x-6 gap-y-3 text-[13px] text-foreground/75">
+            <ul className="mt-7 grid grid-cols-2 gap-x-6 gap-y-3 text-[13px]">
               {[
                 ["10 min", "Metro Station"],
                 ["12 min", "IT Hub"],
@@ -594,15 +687,15 @@ function Location() {
                 ["05 min", "Retail Spine"],
               ].map(([t, l]) => (
                 <li key={l} className="flex flex-col">
-                  <span className="font-serif text-xl gold-text">{t}</span>
-                  <span className="text-[11px] uppercase tracking-[0.22em] text-foreground/55">
+                  <span className="font-serif text-xl gold-text drop-shadow-md">{t}</span>
+                  <span className="text-[11px] uppercase tracking-[0.22em] text-white/85 drop-shadow-sm">
                     {l}
                   </span>
                 </li>
               ))}
             </ul>
 
-            <div className="mt-8 flex items-center gap-3 text-[11px] uppercase tracking-[0.28em] text-foreground/60">
+            <div className="mt-8 flex items-center gap-3 text-[11px] uppercase tracking-[0.28em] text-white/90 drop-shadow-sm">
               <MapPin className="h-3.5 w-3.5" />
               Coordinates available on request
             </div>
@@ -676,26 +769,49 @@ function Highlights() {
         <div className="flex gap-6 lg:gap-8 px-6 lg:px-10 snap-x snap-mandatory">
           {cards.map((c, i) => (
             <Reveal key={c.t} delay={i * 0.06}>
-              <article className="snap-start group relative w-[78vw] sm:w-[420px] lg:w-[460px] shrink-0">
-                <div className="relative aspect-[4/5] overflow-hidden">
-                  <img
+              <motion.article
+                className="snap-start group relative w-[78vw] sm:w-[420px] lg:w-[460px] shrink-0"
+                whileHover={{ y: -12, boxShadow: "0 30px 80px -30px rgba(0,0,0,0.3)" }}
+                transition={{ duration: 0.4 }}
+              >
+                <div className="relative aspect-[4/5] overflow-hidden bg-foreground/5">
+                  <motion.img
                     src={c.img.src}
                     alt={c.t}
                     loading="lazy"
-                    className="absolute inset-0 h-full w-full object-cover transition-transform duration-[1.6s] ease-out group-hover:scale-[1.06]"
+                    className="absolute inset-0 h-full w-full object-cover"
+                    whileHover={{ scale: 1.08 }}
+                    transition={{ duration: 0.7 }}
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-black/10 to-transparent" />
-                  <div className="absolute top-5 left-5 text-[10px] uppercase tracking-[0.28em] text-white/85">
+                  <motion.div
+                    className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent"
+                    initial={{ opacity: 0.3 }}
+                    whileHover={{ opacity: 0.8 }}
+                    transition={{ duration: 0.4 }}
+                  />
+                  <motion.div
+                    className="absolute top-5 left-5 text-[10px] uppercase tracking-[0.28em] text-white/90"
+                    initial={{ opacity: 0, x: -10 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: i * 0.08 }}
+                  >
                     /0{i + 1}
-                  </div>
-                  <div className="absolute bottom-6 left-6 right-6 text-white">
-                    <h3 className="font-serif text-3xl lg:text-4xl leading-tight">
+                  </motion.div>
+                  <motion.div
+                    className="absolute bottom-6 left-6 right-6 text-white"
+                    initial={{ opacity: 0, y: 10 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: i * 0.1 + 0.1 }}
+                  >
+                    <h3 className="font-serif text-3xl lg:text-4xl leading-tight group-hover:text-[#f4d03f] transition-colors">
                       {c.t}
                     </h3>
                     <p className="mt-2 text-sm text-white/80 max-w-sm">{c.s}</p>
-                  </div>
+                  </motion.div>
                 </div>
-              </article>
+              </motion.article>
             </Reveal>
           ))}
           <div className="w-8 shrink-0" />
@@ -750,72 +866,132 @@ function Amenities() {
         {/* feature masonry */}
         <div className="grid lg:grid-cols-12 gap-4 lg:gap-5">
           <Reveal className="lg:col-span-7 lg:row-span-2">
-            <div className="group relative aspect-[4/3] lg:aspect-auto lg:h-full overflow-hidden">
-              <img
-                src={amenityPool.src}
-                alt="Infinity pool"
+            <motion.div
+              className="group relative aspect-[4/3] lg:aspect-auto lg:h-full overflow-hidden"
+              whileHover={{ scale: 1.02 }}
+              transition={{ duration: 0.5 }}
+            >
+              <motion.img
+                src={lakegallery.src}
+                alt="Lakefront"
                 loading="lazy"
-                className="absolute inset-0 h-full w-full object-cover transition-transform duration-[1.6s] group-hover:scale-105"
+                className="absolute inset-0 h-full w-full object-cover"
+                whileHover={{ scale: 1.1 }}
+                transition={{ duration: 0.8 }}
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-transparent" />
-              <div className="absolute bottom-6 left-6 right-6 text-white">
+              <motion.div
+                className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"
+                initial={{ opacity: 0.4 }}
+                whileHover={{ opacity: 0.8 }}
+                transition={{ duration: 0.4 }}
+              />
+              <motion.div
+                className="absolute bottom-6 left-6 right-6 text-white"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+              >
                 <div className="text-[10px] uppercase tracking-[0.3em] text-white/80">
                   / 01 — Water
                 </div>
-                <h3 className="font-serif text-3xl lg:text-5xl mt-2">
-                  Infinity Pool
+                <h3 className="font-serif text-3xl lg:text-5xl mt-2 group-hover:text-[#f4d03f] transition-colors">
+                  Lakefront
                 </h3>
-              </div>
-            </div>
+              </motion.div>
+            </motion.div>
           </Reveal>
           <Reveal delay={0.08} className="lg:col-span-5">
-            <div className="group relative aspect-[4/3] overflow-hidden">
-              <img
+            <motion.div
+              className="group relative aspect-[4/3] overflow-hidden"
+              whileHover={{ scale: 1.02 }}
+              transition={{ duration: 0.5 }}
+            >
+              <motion.img
                 src={amenityClubhouse.src}
                 alt="Clubhouse"
                 loading="lazy"
-                className="absolute inset-0 h-full w-full object-cover transition-transform duration-[1.6s] group-hover:scale-105"
+                className="absolute inset-0 h-full w-full object-cover"
+                whileHover={{ scale: 1.1 }}
+                transition={{ duration: 0.8 }}
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-transparent" />
-              <div className="absolute bottom-5 left-5 right-5 text-white">
+              <motion.div
+                className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"
+                initial={{ opacity: 0.4 }}
+                whileHover={{ opacity: 0.8 }}
+                transition={{ duration: 0.4 }}
+              />
+              <motion.div
+                className="absolute bottom-5 left-5 right-5 text-white"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.1 }}
+              >
                 <div className="text-[10px] uppercase tracking-[0.3em] text-white/80">
                   / 02 — Gather
                 </div>
-                <h3 className="font-serif text-2xl lg:text-3xl mt-1">
+                <h3 className="font-serif text-2xl lg:text-3xl mt-1 group-hover:text-[#f4d03f] transition-colors">
                   The Clubhouse
                 </h3>
-              </div>
-            </div>
+              </motion.div>
+            </motion.div>
           </Reveal>
           <Reveal delay={0.14} className="lg:col-span-3">
-            <div className="group relative aspect-square overflow-hidden">
-              <img
+            <motion.div
+              className="group relative aspect-square overflow-hidden"
+              whileHover={{ scale: 1.02 }}
+              transition={{ duration: 0.5 }}
+            >
+              <motion.img
                 src={amenityYoga.src}
                 alt="Yoga pavilion"
                 loading="lazy"
-                className="absolute inset-0 h-full w-full object-cover transition-transform duration-[1.6s] group-hover:scale-105"
+                className="absolute inset-0 h-full w-full object-cover"
+                whileHover={{ scale: 1.1 }}
+                transition={{ duration: 0.8 }}
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
-              <div className="absolute bottom-4 left-4 right-4 text-white">
+              <motion.div
+                className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"
+                initial={{ opacity: 0.4 }}
+                whileHover={{ opacity: 0.8 }}
+                transition={{ duration: 0.4 }}
+              />
+              <motion.div
+                className="absolute bottom-4 left-4 right-4 text-white"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.2 }}
+              >
                 <div className="text-[10px] uppercase tracking-[0.3em] text-white/80">
                   / 03
                 </div>
-                <h3 className="font-serif text-xl mt-1">Yoga Pavilion</h3>
-              </div>
-            </div>
+                <h3 className="font-serif text-xl mt-1 group-hover:text-[#f4d03f] transition-colors">
+                  Yoga Pavilion
+                </h3>
+              </motion.div>
+            </motion.div>
           </Reveal>
           <Reveal delay={0.2} className="lg:col-span-2">
-            <div className="h-full bg-background border border-foreground/10 p-5 flex flex-col justify-between aspect-square lg:aspect-auto">
+            <motion.div
+              className="h-full bg-background border border-foreground/10 p-5 flex flex-col justify-between aspect-square lg:aspect-auto hover:border-[#b8893a] transition-colors"
+              whileHover={{ backgroundColor: "rgba(184,137,58,0.05)" }}
+            >
               <div className="text-[10px] uppercase tracking-[0.28em] text-foreground/55">
                 / 04
               </div>
-              <div>
+              <motion.div
+                initial={{ scale: 1 }}
+                whileInView={{ scale: 1 }}
+                whileHover={{ scale: 1.1 }}
+                transition={{ duration: 0.3 }}
+              >
                 <div className="font-serif text-4xl gold-text">13</div>
                 <div className="text-[11px] uppercase tracking-[0.22em] text-foreground/55 mt-1">
                   Curated Experiences
                 </div>
-              </div>
-            </div>
+              </motion.div>
+            </motion.div>
           </Reveal>
         </div>
 
@@ -1038,12 +1214,25 @@ function Investment() {
                     initial={{ height: 0, opacity: 0 }}
                     whileInView={{ height: `${h}%`, opacity: 1 }}
                     viewport={{ once: true }}
-                    transition={{ delay: 0.3 + i * 0.12, duration: 1, ease }}
-                    className="flex-1 bg-gradient-to-t from-[#8c6a2a] to-[#e7c986] rounded-t-sm relative"
+                    whileHover={{ boxShadow: "0 0 30px rgba(184,137,58,0.4)" }}
+                    transition={{ delay: 0.3 + i * 0.12, duration: 1.2, ease }}
+                    className="flex-1 bg-gradient-to-t from-[#8c6a2a] to-[#e7c986] rounded-t-sm relative group cursor-pointer hover:from-[#9a7835] hover:to-[#f0cfa0] transition-colors"
                   >
-                    <span className="absolute -top-6 left-1/2 -translate-x-1/2 text-[10px] uppercase tracking-[0.2em] text-foreground/55">
+                    <motion.span
+                      className="absolute -top-6 left-1/2 -translate-x-1/2 text-[10px] uppercase tracking-[0.2em] text-foreground/55 font-semibold"
+                      initial={{ opacity: 0 }}
+                      whileInView={{ opacity: 1 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: 0.5 + i * 0.12 }}
+                    >
                       {2025 + i}
-                    </span>
+                    </motion.span>
+                    <motion.div
+                      className="absolute -bottom-8 left-1/2 -translate-x-1/2 text-[11px] font-semibold text-[#b8893a] opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap"
+                      whileHover={{ y: -2 }}
+                    >
+                      +{h - (i > 0 ? bars[i - 1] : 0)}%
+                    </motion.div>
                   </motion.div>
                 ))}
               </div>
@@ -1069,13 +1258,264 @@ function Investment() {
   );
 }
 
+/* ----------------------------- Lake Showcase ----------------------------- */
+
+function LakeShowcase() {
+  const stats = [
+    { icon: Waves, n: "2 Lakes", d: "Surrounding the community" },
+    { icon: Trees, n: "40%", d: "Green coverage" },
+    { icon: Sparkles, n: "Prime", d: "Waterfront living" },
+  ];
+
+  const lakeGalleryItems = [
+    {
+      img: lake1,
+      title: "Serene Waters",
+      desc: "A moment of pure tranquility by the lakefront",
+      span: "lg:col-span-6 aspect-[16/10]",
+    },
+    {
+      img: lake2,
+      title: "Golden Hour",
+      desc: "Where memories are made",
+      span: "lg:col-span-3 aspect-[4/5]",
+    },
+    {
+      img: lake3,
+      title: "Wellness Pavilion",
+      desc: "Yoga meets nature",
+      span: "lg:col-span-3 aspect-[4/5]",
+    },
+    {
+      img: lake4,
+      title: "Water Recreation",
+      desc: "Resort-grade amenities",
+      span: "lg:col-span-4 aspect-[4/5]",
+    },
+    {
+      img: lake5,
+      title: "Lakeside Active Living",
+      desc: "Jogging tracks along the promenade",
+      span: "lg:col-span-5 aspect-[5/4]",
+    },
+    {
+      img: lake2,
+      title: "Waterfront Clubhouse",
+      desc: "Community spaces facing the water",
+      span: "lg:col-span-3 aspect-[4/5]",
+    },
+  ];
+
+  return (
+    <section id="lakes" className="relative bg-secondary/20 py-28 lg:py-44 overflow-hidden">
+      <div className="mx-auto max-w-7xl px-6 lg:px-10">
+        {/* Header */}
+        <div className="mb-20 space-y-6 max-w-3xl">
+          <SectionLabel>The Crown Jewel</SectionLabel>
+          <Reveal>
+            <h2 className="font-serif text-[clamp(2.8rem,6vw,5rem)] leading-[1.02] text-balance">
+              Held between two lakes.
+              <br />
+              <em className="italic gold-text">A private waterfront.</em>
+            </h2>
+          </Reveal>
+          <Reveal delay={0.15}>
+            <p className="text-foreground/65 leading-relaxed text-lg">
+              The private lakes that frame TATRA STAAR CITY are the soul of the
+              community. Not just water, but a daily reminder that you live in a
+              place where nature and ambition coexist in perfect balance.
+            </p>
+          </Reveal>
+        </div>
+
+        {/* Lake Features Grid */}
+        <div className="grid lg:grid-cols-3 gap-6 mb-20">
+          {stats.map((s, i) => {
+            const Icon = s.icon;
+            return (
+              <Reveal key={s.n} delay={0.2 + i * 0.08}>
+                <div className="glass p-8 lg:p-10 space-y-4 hover:bg-white/50 transition-colors">
+                  <Icon className="h-8 w-8 text-[#b8893a]" strokeWidth={1.2} />
+                  <div>
+                    <div className="font-serif text-4xl lg:text-5xl gold-text">
+                      {s.n}
+                    </div>
+                    <p className="text-[12px] uppercase tracking-[0.24em] text-foreground/55 mt-3">
+                      {s.d}
+                    </p>
+                  </div>
+                </div>
+              </Reveal>
+            );
+          })}
+        </div>
+
+        {/* Premium Lake Gallery Masonry */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 lg:gap-6 mb-20">
+          {lakeGalleryItems.map((item, i) => (
+            <Reveal
+              key={item.title}
+              delay={0.25 + i * 0.06}
+              className={item.span}
+            >
+              <motion.div
+                className="group relative h-full overflow-hidden bg-foreground/5 cursor-pointer"
+                whileHover={{ scale: 1.03 }}
+                transition={{ duration: 0.5, ease: "easeOut" }}
+              >
+                <motion.img
+                  src={item.img.src}
+                  alt={item.title}
+                  loading="lazy"
+                  className="absolute inset-0 h-full w-full object-cover"
+                  whileHover={{ scale: 1.12 }}
+                  transition={{ duration: 0.8, ease: "easeOut" }}
+                />
+                <motion.div
+                  className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"
+                  initial={{ opacity: 0.5 }}
+                  whileHover={{ opacity: 1 }}
+                  transition={{ duration: 0.4 }}
+                />
+                <motion.div
+                  className="absolute bottom-0 left-0 right-0 p-6 lg:p-8 text-white"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.08 }}
+                >
+                  <motion.div
+                    className="text-[10px] uppercase tracking-[0.24em] text-white/70 mb-2"
+                    whileHover={{ letterSpacing: "0.08em" }}
+                  >
+                    / Lake Living
+                  </motion.div>
+                  <h3 className="font-serif text-2xl lg:text-3xl mb-1 group-hover:text-[#f4d03f] transition-colors">
+                    {item.title}
+                  </h3>
+                  <p className="text-sm text-white/80 max-w-sm">{item.desc}</p>
+                </motion.div>
+              </motion.div>
+            </Reveal>
+          ))}
+        </div>
+
+        {/* Lake Benefits Section */}
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20">
+          <Reveal delay={0.3}>
+            <div className="space-y-8">
+              <div>
+                <h3 className="font-serif text-3xl lg:text-4xl mb-4">
+                  Why water changes everything.
+                </h3>
+                <p className="text-foreground/65 leading-relaxed">
+                  Every legendary city has been built on water. At STAAR CITY,
+                  the lakes are the organizing principle of the entire master
+                  plan. They cool the air, frame every view, define your daily
+                  rhythm, and transform living into an experience.
+                </p>
+              </div>
+
+              <ul className="space-y-5">
+                {[
+                  {
+                    title: "2 km Lake Promenade",
+                    desc: "A continuous waterfront walk for families, fitness, and quiet moments.",
+                  },
+                  {
+                    title: "Waterfront Pavilions",
+                    desc: "Thoughtfully placed for yoga at dawn, meditation at dusk, gatherings year-round.",
+                  },
+                  {
+                    title: "Ecological Living",
+                    desc: "Native flora and fauna transform the lakes into a thriving ecosystem.",
+                  },
+                  {
+                    title: "Private, 24/7 Secured",
+                    desc: "Exclusive waterfront access. Residents only. A private sanctuary of your own.",
+                  },
+                  {
+                    title: "Year-Round Activities",
+                    desc: "Kayaking, fishing, water fitness classes, and seasonal water sports.",
+                  },
+                ].map((item) => (
+                  <div key={item.title} className="flex gap-4">
+                    <span className="h-2 w-2 rounded-full bg-[#b8893a] mt-2.5 shrink-0" />
+                    <div>
+                      <h4 className="font-semibold text-foreground mb-1.5">
+                        {item.title}
+                      </h4>
+                      <p className="text-sm text-foreground/65">{item.desc}</p>
+                    </div>
+                  </div>
+                ))}
+              </ul>
+
+              <div className="pt-4">
+                <GoldButton href="#enquire">Experience the Lakes</GoldButton>
+              </div>
+            </div>
+          </Reveal>
+
+          <Reveal delay={0.35}>
+            <div className="glass p-8 lg:p-12 space-y-8">
+              <div>
+                <div className="text-[10px] uppercase tracking-[0.3em] text-foreground/55 mb-3">
+                  / Wellness Factor
+                </div>
+                <h3 className="font-serif text-3xl text-balance">
+                  Proximity to water is proven to enhance mental wellness.
+                </h3>
+              </div>
+
+              <div className="space-y-6">
+                {[
+                  {
+                    stat: "30%",
+                    label: "Increase in property values near waterfront",
+                  },
+                  {
+                    stat: "40%",
+                    label: "More time spent outdoors in water-adjacent communities",
+                  },
+                  {
+                    stat: "Proven",
+                    label: "Stress reduction from views and proximity to water",
+                  },
+                ].map((item) => (
+                  <div key={item.stat} className="border-l-2 border-[#b8893a] pl-6">
+                    <div className="font-serif text-4xl lg:text-5xl gold-text">
+                      {item.stat}
+                    </div>
+                    <p className="text-sm text-foreground/65 mt-2 max-w-sm">
+                      {item.label}
+                    </p>
+                  </div>
+                ))}
+              </div>
+
+              <div className="pt-4 border-t border-foreground/10">
+                <p className="text-[12px] text-foreground/55 leading-relaxed">
+                  Every detail of STAAR CITY is designed to maximize your
+                  connection with the lakes — from home orientations to community
+                  spaces to the very way streets curve toward water.
+                </p>
+              </div>
+            </div>
+          </Reveal>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 /* -------------------------------- Gallery -------------------------------- */
 
 function Gallery() {
   const items = [
     { img: galleryLake, t: "Lake at Dawn", c: "lg:col-span-4 aspect-[4/5]" },
     { img: amenityPool, t: "Infinity Edge", c: "lg:col-span-3 aspect-[4/5]" },
-    { img: galleryAvenue, t: "The Avenue", c: "lg:col-span-5 aspect-[4/3]" },
+    { img: lakegallery2, t: "The Avenue", c: "lg:col-span-5 aspect-[4/3]" },
     {
       img: galleryGarden,
       t: "Garden Pavilion",
@@ -1101,18 +1541,44 @@ function Gallery() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 lg:gap-5">
           {items.map((it, i) => (
             <Reveal key={i} delay={i * 0.05} className={it.c}>
-              <figure className="group relative h-full overflow-hidden">
-                <img
+              <motion.figure
+                className="group relative h-full overflow-hidden cursor-pointer"
+                whileHover={{ scale: 1.02 }}
+                transition={{ duration: 0.5, ease: "easeOut" }}
+              >
+                <motion.img
                   src={it.img.src}
                   alt={it.t}
                   loading="lazy"
-                  className="absolute inset-0 h-full w-full object-cover transition-transform duration-[1.8s] ease-out group-hover:scale-[1.07]"
+                  className="absolute inset-0 h-full w-full object-cover"
+                  whileHover={{ scale: 1.08 }}
+                  transition={{ duration: 0.7, ease: "easeOut" }}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-                <figcaption className="absolute bottom-5 left-5 text-white opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-500 text-[11px] uppercase tracking-[0.28em]">
+                <motion.div
+                  className="absolute inset-0 bg-gradient-to-t from-black/55 via-black/20 to-transparent"
+                  initial={{ opacity: 0 }}
+                  whileHover={{ opacity: 1 }}
+                  transition={{ duration: 0.4 }}
+                />
+                <motion.figcaption
+                  className="absolute bottom-5 left-5 text-white text-[11px] uppercase tracking-[0.28em]"
+                  initial={{ opacity: 0, y: 10 }}
+                  whileHover={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.4 }}
+                >
                   {it.t}
-                </figcaption>
-              </figure>
+                </motion.figcaption>
+                <div className="absolute top-4 right-4 h-8 w-8 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                  <motion.div
+                    animate={{ rotate: 45 }}
+                    whileHover={{ rotate: 90 }}
+                    transition={{ duration: 0.3 }}
+                    className="text-white text-lg"
+                  >
+                    →
+                  </motion.div>
+                </div>
+              </motion.figure>
             </Reveal>
           ))}
         </div>
@@ -1125,6 +1591,7 @@ function Gallery() {
 
 function Enquire() {
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
   const [form, setForm] = useState({
     name: "",
     phone: "",
@@ -1132,14 +1599,82 @@ function Enquire() {
     interest: "Plotted Development",
     message: "",
   });
-  const onSubmit = (e: React.FormEvent) => {
+
+  const onSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!form.name || !form.phone || !form.email) {
-      toast.error("Please complete name, phone and email.");
+
+    // Client-side validation
+    if (!form.name?.trim()) {
+      toast.error("Please enter your name.");
       return;
     }
-    setSubmitted(true);
-    toast.success("Request received. Our team will be in touch shortly.");
+    if (!form.email?.trim()) {
+      toast.error("Please enter your email.");
+      return;
+    }
+    if (!form.phone?.trim()) {
+      toast.error("Please enter your phone number.");
+      return;
+    }
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(form.email)) {
+      toast.error("Please enter a valid email address.");
+      return;
+    }
+
+    const phoneRegex = /^[0-9\s\-\+\(\)]{10,}$/;
+    if (!phoneRegex.test(form.phone.replace(/\s/g, ""))) {
+      toast.error("Please enter a valid phone number (at least 10 digits).");
+      return;
+    }
+
+    setLoading(true);
+
+    try {
+      const response = await fetch("/api/enquire", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        if (data.details && Array.isArray(data.details)) {
+          data.details.forEach((detail: string) => {
+            toast.error(detail);
+          });
+        } else {
+          toast.error(data.message || data.error || "Failed to submit enquiry");
+        }
+        setLoading(false);
+        return;
+      }
+
+      setSubmitted(true);
+      toast.success(data.message || "Request received. Our team will be in touch shortly.");
+
+      // Reset form after short delay
+      setTimeout(() => {
+        setForm({
+          name: "",
+          phone: "",
+          email: "",
+          interest: "Plotted Development",
+          message: "",
+        });
+      }, 2000);
+    } catch (error) {
+      console.error("Submission error:", error);
+      toast.error(
+        error instanceof Error
+          ? error.message
+          : "Network error. Please try again."
+      );
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -1260,13 +1795,31 @@ function Enquire() {
                       Your details remain confidential and are used only by
                       TATRA Capital.
                     </p>
-                    <button
+                    <motion.button
                       type="submit"
-                      className="group inline-flex items-center gap-3 px-7 py-3.5 text-[12px] uppercase tracking-[0.28em] text-white bg-gradient-to-br from-[#b8893a] via-[#d4a85a] to-[#8c6a2a] hover:shadow-[0_20px_50px_-20px_rgba(184,137,58,0.6)] transition-all"
+                      disabled={loading}
+                      className="group inline-flex items-center gap-3 px-7 py-3.5 text-[12px] uppercase tracking-[0.28em] text-white bg-gradient-to-br from-[#b8893a] via-[#d4a85a] to-[#8c6a2a] disabled:opacity-60 disabled:cursor-not-allowed transition-all"
+                      whileHover={{ scale: loading ? 1 : 1.05 }}
+                      whileTap={{ scale: loading ? 1 : 0.98 }}
                     >
-                      Request a Consultation
-                      <ArrowUpRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-                    </button>
+                      {loading ? (
+                        <>
+                          <motion.div
+                            animate={{ rotate: 360 }}
+                            transition={{ duration: 1, repeat: Infinity }}
+                            className="h-3.5 w-3.5"
+                          >
+                            ⟳
+                          </motion.div>
+                          Submitting...
+                        </>
+                      ) : (
+                        <>
+                          Request a Consultation
+                          <ArrowUpRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                        </>
+                      )}
+                    </motion.button>
                   </div>
                 </motion.form>
               ) : (
@@ -1303,7 +1856,7 @@ function FinalCTA() {
   return (
     <section className="relative h-[90svh] min-h-[600px] w-full overflow-hidden">
       <img
-        src={ctaDusk.src}
+        src={footerbg.src}
         alt="Township at dusk"
         loading="lazy"
         className="absolute inset-0 h-full w-full object-cover"
@@ -1369,6 +1922,7 @@ function Footer() {
               ["Vision", "#vision"],
               ["Location", "#location"],
               ["Highlights", "#highlights"],
+              ["Lakes", "#lakes"],
               ["Amenities", "#amenities"],
               ["Master Plan", "#masterplan"],
               ["Enquire", "#enquire"],
@@ -1465,6 +2019,7 @@ function Index() {
       <Trust />
       <Location />
       <Highlights />
+      <LakeShowcase />
       <Amenities />
       <Lifestyle />
       <MasterPlanSection />

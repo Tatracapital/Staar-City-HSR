@@ -52,4 +52,3 @@ Disallow: /
 
 # Sitemaps
 Sitemap: https://www.tatraprojects.com/sitemap.xml
-Sitemap: https://www.tatraprojects.com/sitemap-index.xml
