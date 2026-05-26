@@ -181,12 +181,12 @@ function Nav() {
         backgroundColor: "rgba(255, 255, 255, 0.05)",
       }}
     >
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-6 lg:px-10 py-2 gap-16">
+      <div className="mx-auto flex max-w-7xl items-center justify-between px-6 lg:px-10 py-[10px] lg:py-3 gap-16">
         <a href="#top" className="flex items-center gap-3 flex-shrink-0">
           <img
             src={scrolled ? logoVariation.src : logo.src}
             alt="TATRA STAAR CITY"
-            className="w-auto h-32 transition-all duration-300"
+            className="w-auto h-16 lg:h-32 transition-all duration-300"
           />
         </a>
 
@@ -228,7 +228,9 @@ function Nav() {
 
         <button
           type="button"
-          className="inline-flex h-10 w-10 items-center justify-center lg:hidden text-white"
+          className={`inline-flex h-10 w-10 items-center justify-center lg:hidden transition-colors duration-300 ${
+            scrolled ? "text-black" : "text-white"
+          }`}
           aria-label="Toggle menu"
           onClick={() => setMenuOpen((open) => !open)}
         >
@@ -259,7 +261,9 @@ function Nav() {
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3 }}
-            className="lg:hidden border-t border-white/10"
+            className={`lg:hidden transition-colors duration-300 ${
+              scrolled ? "border-t border-black/10" : "border-t border-white/10"
+            }`}
           >
             <div className="mx-auto max-w-7xl px-6 py-6">
               <div className="space-y-4">
@@ -267,8 +271,19 @@ function Nav() {
                   <a
                     key={href}
                     href={href}
-                    onClick={() => setMenuOpen(false)}
-                    className="block px-4 py-3 text-[14px] uppercase tracking-[0.24em] text-white/85 transition-colors hover:text-white hover:bg-white/10 rounded-md"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      setMenuOpen(false);
+                      setTimeout(() => {
+                        const element = document.querySelector(href);
+                        element?.scrollIntoView({ behavior: "smooth" });
+                      }, 300);
+                    }}
+                    className={`block px-4 py-3 text-[14px] uppercase tracking-[0.24em] transition-colors rounded-md ${
+                      scrolled
+                        ? "text-black/85 hover:text-black hover:bg-black/10"
+                        : "text-white/85 hover:text-white hover:bg-white/10"
+                    }`}
                   >
                     {label}
                   </a>
@@ -285,7 +300,11 @@ function Nav() {
                     href="https://wa.me/919800000000"
                     target="_blank"
                     rel="noreferrer"
-                    className="flex items-center justify-center rounded-md bg-white/15 border border-white/20 text-white px-6 py-3 text-[11px] uppercase tracking-[0.24em] transition-all"
+                    className={`flex items-center justify-center rounded-md px-6 py-3 text-[11px] uppercase tracking-[0.24em] transition-all ${
+                      scrolled
+                        ? "bg-black/15 border border-black/20 text-black"
+                        : "bg-white/15 border border-white/20 text-white"
+                    }`}
                   >
                     WhatsApp
                   </a>
