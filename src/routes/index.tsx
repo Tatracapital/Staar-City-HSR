@@ -1960,18 +1960,18 @@ function Footer() {
         <div className="lg:col-span-5 space-y-5">
           <div className="flex items-center gap-3">
             <img
-              src={logo.src}
+              src={logoVariation.src}
               alt="TATRA STAAR CITY"
-              className="h-12 w-auto"
+              className="h-32 w-auto"
             />
-            <div className="leading-tight">
+            {/* <div className="leading-tight">
               <div className="text-[10px] uppercase tracking-[0.32em] text-foreground/55">
                 TATRA Capital
               </div>
               <div className="text-[14px] font-medium tracking-[0.18em]">
                 STAAR CITY
               </div>
-            </div>
+            </div> */}
           </div>
           <p className="text-foreground/60 max-w-sm leading-relaxed">
             A premium plotted development crafted for future-focused investors
