@@ -1623,7 +1623,7 @@ function Enquire() {
       return;
     }
 
-    const phoneRegex = /^[0-9\s\-\+\(\)]{10,}$/;
+    const phoneRegex = /^[0-9\s\-()+]{10,}$/;
     if (!phoneRegex.test(form.phone.replace(/\s/g, ""))) {
       toast.error("Please enter a valid phone number (at least 10 digits).");
       return;

@@ -51,7 +51,7 @@ function validateEnquiry(data: EnquiryData): { valid: boolean; errors: string[] 
     errors.push('Invalid email format');
   }
 
-  const phoneRegex = /^[0-9\s\-\+\(\)]{10,}$/;
+  const phoneRegex = /^[0-9\s\-()+]{10,}$/;
   if (data.phone && !phoneRegex.test(data.phone.replace(/\s/g, ''))) {
     errors.push('Phone must be at least 10 digits');
   }
