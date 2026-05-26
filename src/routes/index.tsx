@@ -72,7 +72,7 @@ const ease = [0.22, 1, 0.36, 1] as const;
 
 function SectionLabel({ children }: { children: React.ReactNode }) {
   return (
-    <div className="flex items-center gap-3 text-[11px] uppercase tracking-[0.32em] text-foreground/55">
+    <div className="flex items-center gap-3 text-[15px] lg:text-[18px] uppercase tracking-[0.32em] text-foreground/55 font-semibold">
       <span className="h-px w-8 bg-foreground/30" />
       <span>{children}</span>
     </div>
@@ -181,16 +181,16 @@ function Nav() {
         backgroundColor: "rgba(255, 255, 255, 0.05)",
       }}
     >
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-6 lg:px-10 py-[10px] lg:py-3 gap-16">
+      <div className="mx-auto flex max-w-7xl items-center justify-between px-6 lg:px-10 py-0 gap-10">
         <a href="#top" className="flex items-center gap-3 flex-shrink-0">
           <img
             src={scrolled ? logoVariation.src : logo.src}
             alt="TATRA STAAR CITY"
-            className="w-auto h-16 lg:h-32 transition-all duration-300"
+            className="w-auto h-24 lg:h-32 transition-all duration-300"
           />
         </a>
 
-        <nav className="hidden lg:flex items-center gap-10 text-[10px] uppercase tracking-[0.2em] whitespace-nowrap">
+        <nav className="hidden lg:flex items-center gap-10 text-[12px] uppercase tracking-[0.2em] whitespace-nowrap">
           {links.map(([label, href]) => (
             <a
               key={href}
@@ -208,7 +208,7 @@ function Nav() {
         <motion.div className="hidden lg:flex items-center gap-3">
           <motion.a
             href="#enquire"
-            className="inline-flex items-center gap-2 bg-gradient-to-br from-[#b8893a] via-[#d4a85a] to-[#8c6a2a] text-white px-6 py-2.5 text-[11px] uppercase tracking-[0.24em] transition-all rounded-md"
+            className="inline-flex items-center gap-2 bg-gradient-to-br from-[#b8893a] via-[#d4a85a] to-[#8c6a2a] text-white px-6 py-2.5 text-[13px] uppercase tracking-[0.24em] transition-all rounded-md"
             whileHover={{ scale: 1.05, boxShadow: "0 10px 30px -10px rgba(184,137,58,0.4)" }}
             whileTap={{ scale: 0.98 }}
           >
@@ -218,7 +218,7 @@ function Nav() {
             href="https://wa.me/919800000000"
             target="_blank"
             rel="noreferrer"
-            className="inline-flex items-center gap-2 bg-white/15 border border-white/20 text-white px-6 py-2.5 text-[11px] uppercase tracking-[0.24em] transition-all rounded-md hover:bg-white/25 hover:border-white/30"
+            className="inline-flex items-center gap-2 bg-[#25D366] text-white px-6 py-2.5 text-[13px] uppercase tracking-[0.24em] transition-all rounded-md hover:bg-[#20BA5A]"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.98 }}
           >
@@ -300,11 +300,7 @@ function Nav() {
                     href="https://wa.me/919800000000"
                     target="_blank"
                     rel="noreferrer"
-                    className={`flex items-center justify-center rounded-md px-6 py-3 text-[11px] uppercase tracking-[0.24em] transition-all ${
-                      scrolled
-                        ? "bg-black/15 border border-black/20 text-black"
-                        : "bg-white/15 border border-white/20 text-white"
-                    }`}
+                    className="flex items-center justify-center rounded-md px-6 py-3 text-[11px] uppercase tracking-[0.24em] transition-all bg-[#25D366] text-white hover:bg-[#20BA5A]"
                   >
                     WhatsApp
                   </a>
