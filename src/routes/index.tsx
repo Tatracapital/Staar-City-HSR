@@ -38,6 +38,7 @@ import {
 
 import logo from "@/assets/Logo-TATRA.png";
 import logoVariation from "@/assets/Logo  - TATRA VARIATION-01.png";
+import starLogo from "@/assets/logo.png";
 import heroImg from "@/assets/Asset 3@4x.png";
 import locationMap from "@/assets/location-map.png";
 import amenityPool from "@/assets/amenity-pool.jpg";
@@ -175,44 +176,40 @@ function Nav() {
       initial={{ y: -40, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 1, ease, delay: 0.2 }}
-      className={`fixed inset-x-0 top-0 z-50 transition-all duration-700`}
-      style={{ paddingTop: "15px", paddingBottom: "15px" }}
+      className="fixed inset-x-0 top-0 z-50 w-full border-b border-white/10 backdrop-blur-md"
+      style={{
+        backgroundColor: "rgba(255, 255, 255, 0.05)",
+      }}
     >
-      <div
-        className={`mx-auto flex max-w-7xl items-center justify-between px-6 lg:px-10 transition-all ${
-          scrolled
-            ? "rounded-full bg-white/85 backdrop-blur-xl border border-white/70 shadow-[0_10px_40px_-20px_rgba(60,40,20,0.25)]"
-            : ""
-        }`}
-        style={scrolled ? { maxWidth: "76rem" } : {}}
-      >
-        <a href="#top" className="flex items-center gap-3">
+      <div className="mx-auto flex max-w-7xl items-center justify-between px-6 lg:px-10 py-2 gap-16">
+        <a href="#top" className="flex items-center gap-3 flex-shrink-0">
           <img
             src={scrolled ? logoVariation.src : logo.src}
             alt="TATRA STAAR CITY"
-            className="w-auto h-24 transition-all duration-300"
+            className="w-auto h-32 transition-all duration-300"
           />
         </a>
 
-        <nav className="hidden lg:flex items-center gap-8 text-[12px] uppercase tracking-[0.22em] transition-colors" style={{ color: scrolled ? "#1a1a1a" : "rgba(255,255,255,0.85)" }}>
+        <nav className="hidden lg:flex items-center gap-10 text-[10px] uppercase tracking-[0.2em] whitespace-nowrap">
           {links.map(([label, href]) => (
             <a
               key={href}
               href={href}
-              className="relative transition-colors hover:opacity-70"
-              style={{ color: "inherit" }}
+              className={`relative transition-colors group ${
+                scrolled ? "text-black/85 hover:text-black" : "text-white/85 hover:text-white"
+              }`}
             >
               {label}
-              <span className="absolute inset-x-0 -bottom-1 h-px bg-gradient-to-r from-transparent via-[#8b7355] to-transparent opacity-0 transition-opacity duration-300 hover:opacity-100" />
+              <span className={`absolute inset-x-0 -bottom-2 h-px bg-linear-to-r from-transparent via-[#b8893a] to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100`} />
             </a>
           ))}
         </nav>
 
-        <motion.div className="hidden lg:flex items-center gap-4">
+        <motion.div className="hidden lg:flex items-center gap-3">
           <motion.a
             href="#enquire"
-            className="inline-flex items-center gap-2 rounded-full bg-gradient-to-br from-[#8b7355] to-[#5c4a3d] text-white px-5 py-2.5 text-[11px] uppercase tracking-[0.24em] transition-all"
-            whileHover={{ scale: 1.05, boxShadow: "0 10px 30px -10px rgba(139,115,85,0.3)" }}
+            className="inline-flex items-center gap-2 bg-gradient-to-br from-[#b8893a] via-[#d4a85a] to-[#8c6a2a] text-white px-6 py-2.5 text-[11px] uppercase tracking-[0.24em] transition-all rounded-md"
+            whileHover={{ scale: 1.05, boxShadow: "0 10px 30px -10px rgba(184,137,58,0.4)" }}
             whileTap={{ scale: 0.98 }}
           >
             Enquire <ArrowRight className="h-3 w-3" />
@@ -221,7 +218,7 @@ function Nav() {
             href="https://wa.me/919800000000"
             target="_blank"
             rel="noreferrer"
-            className="inline-flex items-center gap-2 rounded-full bg-[#25D366] text-white px-5 py-2.5 text-[11px] uppercase tracking-[0.24em] transition-all hover:bg-[#20BA5A]"
+            className="inline-flex items-center gap-2 bg-white/15 border border-white/20 text-white px-6 py-2.5 text-[11px] uppercase tracking-[0.24em] transition-all rounded-md hover:bg-white/25 hover:border-white/30"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.98 }}
           >
@@ -231,28 +228,23 @@ function Nav() {
 
         <button
           type="button"
-          className="inline-flex h-11 w-11 items-center justify-center lg:hidden"
+          className="inline-flex h-10 w-10 items-center justify-center lg:hidden text-white"
           aria-label="Toggle menu"
           onClick={() => setMenuOpen((open) => !open)}
         >
           <span className="relative flex h-6 w-6 items-center justify-center">
-            {/* Top Line */}
             <span
-              className={`absolute h-[2px] w-6 rounded-full bg-current transition-all duration-300 ease-in-out ${
+              className={`absolute h-0.5 w-6 rounded-full bg-current transition-all duration-300 ease-in-out ${
                 menuOpen ? "rotate-45 translate-y-0" : "-translate-y-2"
               }`}
             />
-
-            {/* Middle Line */}
             <span
-              className={`absolute h-[2px] w-6 rounded-full bg-current transition-all duration-300 ease-in-out ${
+              className={`absolute h-0.5 w-6 rounded-full bg-current transition-all duration-300 ease-in-out ${
                 menuOpen ? "opacity-0" : "opacity-100"
               }`}
             />
-
-            {/* Bottom Line */}
             <span
-              className={`absolute h-[2px] w-6 rounded-full bg-current transition-all duration-300 ease-in-out ${
+              className={`absolute h-0.5 w-6 rounded-full bg-current transition-all duration-300 ease-in-out ${
                 menuOpen ? "-rotate-45 translate-y-0" : "translate-y-2"
               }`}
             />
@@ -263,36 +255,37 @@ function Nav() {
       <AnimatePresence>
         {menuOpen ? (
           <motion.div
-            initial={{ opacity: 0, y: -12 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -12 }}
-            className="lg:hidden"
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.3 }}
+            className="lg:hidden border-t border-white/10"
           >
-            <div className="mx-auto max-w-7xl px-6 pb-6 lg:px-10">
-              <div className="mt-4 overflow-hidden rounded-[2rem] border border-white/60 bg-white/90 p-6 shadow-[0_35px_80px_-30px_rgba(60,40,20,0.35)] backdrop-blur-xl">
-                <div className="grid gap-4">
-                  {links.map(([label, href]) => (
-                    <a
-                      key={href}
-                      href={href}
-                      onClick={() => setMenuOpen(false)}
-                      className="rounded-3xl px-4 py-4 text-[15px] font-semibold uppercase tracking-[0.28em] text-foreground/80 transition hover:bg-[#f5eedc]"
-                    >
-                      {label}
-                    </a>
-                  ))}
+            <div className="mx-auto max-w-7xl px-6 py-6">
+              <div className="space-y-4">
+                {links.map(([label, href]) => (
+                  <a
+                    key={href}
+                    href={href}
+                    onClick={() => setMenuOpen(false)}
+                    className="block px-4 py-3 text-[14px] uppercase tracking-[0.24em] text-white/85 transition-colors hover:text-white hover:bg-white/10 rounded-md"
+                  >
+                    {label}
+                  </a>
+                ))}
+                <div className="space-y-2 pt-4">
                   <a
                     href="#enquire"
                     onClick={() => setMenuOpen(false)}
-                    className="inline-flex items-center justify-center rounded-full bg-foreground text-background px-5 py-3 text-[12px] uppercase tracking-[0.24em] hover:bg-foreground/90 transition-colors"
+                    className="flex items-center justify-center rounded-md bg-gradient-to-br from-[#b8893a] via-[#d4a85a] to-[#8c6a2a] text-white px-6 py-3 text-[11px] uppercase tracking-[0.24em] transition-all"
                   >
-                    Enquire
+                    Enquire <ArrowRight className="h-3 w-3 ml-2" />
                   </a>
                   <a
                     href="https://wa.me/919800000000"
                     target="_blank"
                     rel="noreferrer"
-                    className="inline-flex items-center justify-center rounded-full bg-[#25D366] text-white px-5 py-3 text-[12px] uppercase tracking-[0.24em] hover:bg-[#20BA5A] transition-colors"
+                    className="flex items-center justify-center rounded-md bg-white/15 border border-white/20 text-white px-6 py-3 text-[11px] uppercase tracking-[0.24em] transition-all"
                   >
                     WhatsApp
                   </a>
@@ -319,9 +312,9 @@ function Hero() {
   const opacity = useTransform(scrollYProgress, [0, 0.9], [1, 0]);
 
   const heroImages = [
-    { src: heroImg.src, alt: "Aerial view of TATRA STAAR CITY township between two lakes at golden hour" },
-    { src: hero2.src, alt: "Another view of TATRA STAAR CITY" },
     { src: hero3.src, alt: "Yet another view of TATRA STAAR CITY" },
+    { src: hero2.src, alt: "Another view of TATRA STAAR CITY" },
+    { src: heroImg.src, alt: "Aerial view of TATRA STAAR CITY township between two lakes at golden hour" },
   ];
 
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
@@ -588,8 +581,15 @@ function Trust() {
               </h2>
             </Reveal>
           </div>
-          <div className="lg:col-span-5">
+          <div className="lg:col-span-5 flex flex-col gap-8">
             <Reveal delay={0.15}>
+              <img
+                src={starLogo.src}
+                alt="TATRA STAAR CITY Logo"
+                className="w-40 h-auto"
+              />
+            </Reveal>
+            <Reveal delay={0.2}>
               <p className="text-foreground/65 leading-relaxed">
                 TATRA Capital is a future-focused real estate house that has
                 spent decades stewarding land, capital and the trust of
@@ -709,6 +709,9 @@ function Location() {
 /* ------------------------------ Highlights -------------------------------- */
 
 function Highlights() {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
+
   const cards = [
     {
       t: "Between Two Lakes",
@@ -741,6 +744,34 @@ function Highlights() {
       img: locationMap,
     },
   ];
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentIndex((prev) => (prev + 1) % cards.length);
+    }, 5000);
+    return () => clearInterval(interval);
+  }, [cards.length]);
+
+  useEffect(() => {
+    if (scrollContainerRef.current) {
+      const cardWidth = scrollContainerRef.current.querySelector('article')?.clientWidth || 460;
+      const gap = 32;
+      const scrollAmount = (cardWidth + gap) * currentIndex;
+      scrollContainerRef.current.scrollTo({
+        left: scrollAmount,
+        behavior: "smooth",
+      });
+    }
+  }, [currentIndex]);
+
+  const handlePrev = () => {
+    setCurrentIndex((prev) => (prev - 1 + cards.length) % cards.length);
+  };
+
+  const handleNext = () => {
+    setCurrentIndex((prev) => (prev + 1) % cards.length);
+  };
+
   return (
     <section
       id="highlights"
@@ -758,14 +789,34 @@ function Highlights() {
             </Reveal>
           </div>
           <Reveal delay={0.15}>
-            <div className="text-[11px] uppercase tracking-[0.28em] text-foreground/55 max-w-xs">
-              Scroll horizontally to read the project's defining notes.
+            <div className="flex items-center gap-4">
+              <div className="hidden lg:block text-[11px] uppercase tracking-[0.28em] text-foreground/55">
+                {currentIndex + 1} / {cards.length}
+              </div>
+              <div className="hidden lg:flex gap-3">
+                <motion.button
+                  onClick={handlePrev}
+                  className="p-3 rounded-full border border-foreground/30 hover:border-foreground/60 text-foreground/60 hover:text-foreground transition-colors"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  <ArrowRight className="h-4 w-4 rotate-180" />
+                </motion.button>
+                <motion.button
+                  onClick={handleNext}
+                  className="p-3 rounded-full border border-foreground/30 hover:border-foreground/60 text-foreground/60 hover:text-foreground transition-colors"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  <ArrowRight className="h-4 w-4" />
+                </motion.button>
+              </div>
             </div>
           </Reveal>
         </div>
       </div>
 
-      <div className="relative overflow-x-auto pb-6 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+      <div ref={scrollContainerRef} className="relative overflow-x-auto pb-6 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
         <div className="flex gap-6 lg:gap-8 px-6 lg:px-10 snap-x snap-mandatory">
           {cards.map((c, i) => (
             <Reveal key={c.t} delay={i * 0.06}>
