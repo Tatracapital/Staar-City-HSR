@@ -36,7 +36,8 @@
         "name": "next"
       }
     ],
-    "moduleResolution": "node"
+    "moduleResolution": "bundler",
+    "ignoreDeprecations": "6.0"
   },
   "exclude": ["node_modules", "src/server.ts", "src/start.ts"]
 }

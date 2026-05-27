@@ -291,7 +291,14 @@ function Nav() {
                 <div className="space-y-2 pt-4">
                   <a
                     href="#enquire"
-                    onClick={() => setMenuOpen(false)}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      setMenuOpen(false);
+                      setTimeout(() => {
+                        const element = document.querySelector("#enquire");
+                        element?.scrollIntoView({ behavior: "smooth" });
+                      }, 300);
+                    }}
                     className="flex items-center justify-center rounded-md bg-gradient-to-br from-[#b8893a] via-[#d4a85a] to-[#8c6a2a] text-white px-6 py-3 text-[11px] uppercase tracking-[0.24em] transition-all"
                   >
                     Enquire <ArrowRight className="h-3 w-3 ml-2" />
@@ -729,6 +736,11 @@ function Highlights() {
 
   const cards = [
     {
+      t: "Urban Connectivity",
+      s: "Metro, airport and commercial in 25 mins.",
+      img: locationMap,
+    },
+    {
       t: "Between Two Lakes",
       s: "A rare site held by water on either flank.",
       img: galleryLake,
@@ -752,11 +764,6 @@ function Highlights() {
       t: "Landscaped Community",
       s: "Forty percent open, deliberately green.",
       img: galleryGarden,
-    },
-    {
-      t: "Urban Connectivity",
-      s: "Metro, airport and commercial in 25 mins.",
-      img: locationMap,
     },
   ];
 
